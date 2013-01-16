@@ -1,0 +1,39 @@
+# ============================================
+# $Id: Makefile.in,v 1.2 2010-03-11 12:31:46 eric Exp $
+# ============================================
+PACKAGE = @PACKAGE@
+VERSION = @VERSION@
+utildir=@PUBRULE@
+pubdir = @prefix@
+srcdir = @srcdir@
+applib = FDL
+rootprefix=$(RPM_BUILD_ROOT)
+appname = @APPNAME@
+export pubdir utildir appname applib
+TAR = tar
+GZIP_ENV = --best
+
+export targetdir PACKAGE
+
+SUBDIR= Actions Images programs ONEFAM_EXT
+
+include $(utildir)/PubRule
+
+TRANSODS = 
+DISTFILES += $(SUBDIR)  $(wildcard *.ods)\
+            $(wildcard *.in) \
+            VERSION RELEASE  \
+	    $(PACKAGE)_en.po $(PACKAGE)_fr.po 
+
+webinst-ext:
+	make -C ONEFAM_EXT -e webinst RELEASE=$(RELEASE) PACKAGE=$(PACKAGE)-ext VERSION=$(VERSION) appname=$(appname)
+	mv ONEFAM_EXT/*webinst .
+
+webinst: webinst-ext
+
+clean-ext:
+	make -C ONEFAM_EXT clean
+
+clean: clean-ext
+	/bin/rm -f *.*~ config.* Makefile configure $(appname)_init.php info.xml $(PACKAGE)-*webinst
+	/bin/rm -fr autom4te.cache

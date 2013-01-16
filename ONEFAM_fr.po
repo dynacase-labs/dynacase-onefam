@@ -1,0 +1,147 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: TEMPLATE\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-01-15 11:07+0100\n"
+"PO-Revision-Date: 2013-01-15 11:42+0100\n"
+"Last-Translator: Jean Martin <jean.martin@somewhere.org>\n"
+"Language-Team: French <distrib@somewhere.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Access To Read Card"
+msgstr "Accès à la lecture"
+
+msgid "Access choose masters families"
+msgstr "Accès au choix des familles visibles administratives"
+
+msgid "Choose visibles families"
+msgstr "Choix des familles visibles"
+
+msgid "Close"
+msgstr "Fermer"
+
+#, c-format
+msgid "Create %s"
+msgstr "Créer %s"
+
+#, c-format
+msgid "Edit %s"
+msgstr "Éditer %s"
+
+#, c-format
+msgid "Family (#%d) is not referenced"
+msgstr "la famille (#%d) n'est pas référencée"
+
+msgid "Family is not instanciate"
+msgstr "La famille n'est pas instanciée"
+
+msgid "Generic Management"
+msgstr "Gestion générique"
+
+msgid "No family first"
+msgstr "Pas de famille ouverte par défaut"
+
+msgid "One Familly Management"
+msgstr "Gestion par famille"
+
+msgid "Onefam"
+msgstr "Une famille"
+
+msgid "Starting of"
+msgstr "Démarrage de"
+
+msgid "This action requires the installation of Dynacase Extui module"
+msgstr "Cette action nécessite l'installation du module Dynacase Extui"
+
+msgid "To choose other families"
+msgstr "Pour choisir d'autres familles"
+
+msgid "Validate"
+msgstr "Valider"
+
+msgid "choose user families"
+msgstr "Choix des familles personnelles"
+
+msgid "default background color"
+msgstr "couleur de fond"
+
+msgid "default opened family"
+msgstr "famille ouverte par défaut"
+
+msgid "display mode"
+msgstr "mode d'affichage"
+
+msgid "edit master preferences"
+msgstr "editer les préférences administratives"
+
+msgid "edit preferences"
+msgstr "editer les préférences"
+
+msgid "familly list"
+msgstr "liste des familles"
+
+msgid "familly result"
+msgstr "résultat des familles"
+
+msgid "get data for createtree family"
+msgstr "récupération de données pour l'arbre des familles"
+
+msgid "get ext display configuration"
+msgstr "Récupération de la configuration d'affichage"
+
+msgid "get master preferences"
+msgstr "récupération des préférences d'administration"
+
+msgid "get menu with family concordance"
+msgstr "récupération du menu de famille"
+
+msgid "get preferences"
+msgstr "récupération des préférences"
+
+msgid "icon column number"
+msgstr "nombre de colonne d'icones"
+
+msgid "master choose families"
+msgstr "choix des familles administratives"
+
+msgid "modify master preferences"
+msgstr "modifier les préférences administratives"
+
+msgid "modify preferences"
+msgstr "modifier les préférences"
+
+msgid "one familly root"
+msgstr "racine gestion par famille"
+
+msgid "one family extjs view"
+msgstr "interface extjs"
+
+msgid "one family generic root"
+msgstr "racine generic gestion par famille"
+
+msgid "open first family"
+msgstr " Ouverte en premier"
+
+msgid "other families"
+msgstr "Autres familles"
+
+msgid "redirect to generic"
+msgstr "rediriger vers generic"
+
+msgid "set as first family view"
+msgstr "enregistrer la famille comme la première à voir"
+
+msgid "set ext display configuration"
+msgstr "affecte la configuration d'affichage"
+
+msgid "specific family menu"
+msgstr "Menu de famille spécifique"
+
+msgid "visible master families"
+msgstr "familles administratives visibles"
+
+msgid "visible user families"
+msgstr "familles personnelles visibles"
