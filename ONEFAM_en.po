@@ -1,0 +1,146 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ZOO\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-01-15 11:07+0100\n"
+"PO-Revision-Date: 2013-01-15 11:24+0100\n"
+"Last-Translator: John Doe <john.doe@somewhere.org>\n"
+"Language-Team: English <distrib@somewhere.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Access To Read Card"
+msgstr ""
+
+msgid "Access choose masters families"
+msgstr ""
+
+msgid "Choose visibles families"
+msgstr "Start search"
+
+msgid "Close"
+msgstr ""
+
+#, c-format
+msgid "Create %s"
+msgstr ""
+
+#, c-format
+msgid "Edit %s"
+msgstr ""
+
+#, c-format
+msgid "Family (#%d) is not referenced"
+msgstr ""
+
+msgid "Family is not instanciate"
+msgstr ""
+
+msgid "Generic Management"
+msgstr ""
+
+msgid "No family first"
+msgstr "Start search"
+
+msgid "One Familly Management"
+msgstr ""
+
+msgid "Onefam"
+msgstr "Lastname"
+
+msgid "Starting of"
+msgstr ""
+
+msgid "This action requires the installation of Dynacase Extui module"
+msgstr ""
+
+msgid "To choose other families"
+msgstr ""
+
+msgid "Validate"
+msgstr "Edit"
+
+msgid "choose user families"
+msgstr "Start search"
+
+msgid "default background color"
+msgstr ""
+
+msgid "default opened family"
+msgstr "Delete"
+
+msgid "display mode"
+msgstr ""
+
+msgid "edit master preferences"
+msgstr "Modify"
+
+msgid "edit preferences"
+msgstr ""
+
+msgid "familly list"
+msgstr "Start search"
+
+msgid "familly result"
+msgstr "Start search"
+
+msgid "get data for createtree family"
+msgstr ""
+
+msgid "get ext display configuration"
+msgstr ""
+
+msgid "get master preferences"
+msgstr ""
+
+msgid "get menu with family concordance"
+msgstr ""
+
+msgid "get preferences"
+msgstr ""
+
+msgid "icon column number"
+msgstr ""
+
+msgid "master choose families"
+msgstr "Start search"
+
+msgid "modify master preferences"
+msgstr ""
+
+msgid "modify preferences"
+msgstr "Modify"
+
+msgid "one familly root"
+msgstr "Start search"
+
+msgid "one family extjs view"
+msgstr ""
+
+msgid "one family generic root"
+msgstr "Start search"
+
+msgid "open first family"
+msgstr "Category"
+
+msgid "other families"
+msgstr ""
+
+msgid "redirect to generic"
+msgstr "Start search"
+
+msgid "set as first family view"
+msgstr "Organistation"
+
+msgid "set ext display configuration"
+msgstr ""
+
+msgid "specific family menu"
+msgstr ""
+
+msgid "visible master families"
+msgstr "Start search"
+
+msgid "visible user families"
+msgstr "Start search"
