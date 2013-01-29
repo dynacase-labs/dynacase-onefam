@@ -9,10 +9,11 @@ fi
 
 PGSERVICE="$pgservice_core" psql --set ON_ERROR_STOP=on -f - <<EOF
 -- Activate the ONEFAM application
-UPDATE application SET available = 'Y' WHERE name = 'ONEFAM';
+UPDATE application SET available = 'Y' WHERE name = 'ONEFAM' or childof = 'ONEFAM';
+
 EOF
 RET=$?
 if [ $RET -ne 0 ]; then
-    echo "Error hiding application 'ONEFAM'."
+    echo "Error activate application 'ONEFAM'."
     exit $RET
 fi

@@ -12,7 +12,7 @@
 
     <post-install>
         <process command="programs/ONEFAM_init">
-            <label>Reactivate ONEFAM application</label>
+            <label>Reactivate ONEFAM applications</label>
         </process>
         <process command="programs/record_application ONEFAM I" />
         <process command="programs/update_catalog" />
