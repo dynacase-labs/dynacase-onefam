@@ -1,59 +1,51 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html>
-  <head>
-
-   <title>[APP_TITLE]</title>
-      <meta http-equiv="X-UA-Compatible" content="IE=100" /> <!-- IE latest mode -->
-   
-<link rel="icon" href="[DYNACASE_FAVICO]"/>
-<link rel="shortcut icon" href="[DYNACASE_FAVICO]"/>
-<link rel="stylesheet" type="text/css" href="[CORE_SSTANDURL]app=FDL&amp;action=ALLVIEWCSS&amp;wv=[WVERSION]" />
-
-[CSS:REF]
-[JS:REF]
-
-
-   <style type="text/css">
-[CSS:CODE]
-.ifonefam {
-  width:100%;
-  height:99%; /* else parasite scroll in FF/IE but not in chrome */
-  border:none;
-}
-.iframecell {
-  [IFNOT ISIE]height:100%;[ENDIF ISIE]
-  [IF ISIE]height:100%;[ENDIF ISIE]
-  padding:0px;
-  margin:0px;
- [IF ISIE] vertical-align:top;[ENDIF ISIE]
-}
-.iconList {
-       border:none;
-       overflow:auto;
-       }
-body.onefam {
- width:100%;
- height:100%;
- [IF oneBgColor]
-  background-color:[ONEFAM_BGCOLOR];
-  background: linear-gradient(270deg, [ONEFAM_BGCOLOR], [CORE_BGCOLOR]);
-  background: -moz-linear-gradient(270deg, [ONEFAM_BGCOLOR], [CORE_BGCOLOR]);
-  background: -webkit-gradient(linear, 0% 0, 0% 100%, from([ONEFAM_BGCOLOR]), to([CORE_BGCOLOR]) );
-  /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='[ONEFAM_BGCOLOR]', endColorstr='[CORE_BGCOLOR]'); */
- [ENDIF oneBgColor]
- 
- 
-}
-   </style>
-
-   <script language="javascript">
+<head>
+    <title>[APP_TITLE]</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=100" /> <!-- IE latest mode -->
+    <link rel="icon" href="[DYNACASE_FAVICO]"/>
+    <link rel="shortcut icon" href="[DYNACASE_FAVICO]"/>
+    <link rel="stylesheet" type="text/css" href="[CORE_SSTANDURL]app=FDL&amp;action=ALLVIEWCSS&amp;wv=[WVERSION]" />
+    [CSS:REF]
+    [JS:REF]
+    <style type="text/css">
+    [CSS:CODE]
+    .ifonefam {
+      width:100%;
+      height:99%; /* else parasite scroll in FF/IE but not in chrome */
+      border:none;
+    }
+    .iframecell {
+      [IFNOT ISIE]height:100%;[ENDIF ISIE]
+      [IF ISIE]height:100%;[ENDIF ISIE]
+      padding:0px;
+      margin:0px;
+     [IF ISIE] vertical-align:top;[ENDIF ISIE]
+    }
+    .iconList {
+           border:none;
+           overflow:auto;
+           }
+    body.onefam {
+     width:100%;
+     height:100%;
+     [IF oneBgColor]
+      background-color:[ONEFAM_BGCOLOR];
+      background: linear-gradient(270deg, [ONEFAM_BGCOLOR], [CORE_BGCOLOR]);
+      background: -moz-linear-gradient(270deg, [ONEFAM_BGCOLOR], [CORE_BGCOLOR]);
+      background: -webkit-gradient(linear, 0% 0, 0% 100%, from([ONEFAM_BGCOLOR]), to([CORE_BGCOLOR]) );
+      /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='[ONEFAM_BGCOLOR]', endColorstr='[CORE_BGCOLOR]'); */
+     [ENDIF oneBgColor]
+    }
+    </style>
+    <script language="javascript">
 function imgborder() {
   for (var i=0; i< document.images.length; i++) {
     document.images[i].style.borderStyle='inset';
   }
 }
 
-function ctrlPushed(event) {  
+function ctrlPushed(event) {
   if (!event) event=window.event;
   if (!event) return false;
   return event.ctrlKey;
@@ -113,8 +105,8 @@ function reloadiframe(event,th,docid) {
   if (nf) {
     nf.style.display='';
     nf.src='[CORE_STANDURL]&app=[APPNAME]&action=ONEFAM_GENROOT&famid='+docid;
-  } 
-  
+  }
+
 }
 function openfirst(docid) {
   var i=document.getElementById('imgu'+docid);
@@ -163,45 +155,46 @@ addEvent(window,'resize',function () {resizeIconListAtEnd([colNumber]);})
  </head>
 
 <body class="onefam" >
+    <table cellpadding="0px" cellspacing="0px" style="width:100%;height:100%">
+        <tr>
+            <td style="width:[wcols]px" valign="top">
+                <div id="iconList" class="iconList">
+                    [BLOCK SELECTMASTER]
+                    <img style="width:[izpx]px"
+                         src="[iconsrc]"
+                         onclick="if (ctrlPushed(event)) reloadiframe(event,this,'[idcdoc]'); else openiframe(event,this,'[idcdoc]');"
+                         class="onefamico"
+                         id="imgm[idcdoc]"
+                         alt="[ftitle]"
+                         title="[ftitle]"/>
+                    [ENDBLOCK SELECTMASTER]
 
-<table cellpadding="0px" cellspacing="0px" style="width:100%;height:100%"><tr><td style="width:[wcols]px" valign="top">
-    <div id="iconList" class="iconList">
-[BLOCK SELECTMASTER]
-<img style="width:[izpx]px"
-     src="[iconsrc]"
-     onclick="if (ctrlPushed(event)) reloadiframe(event,this,'[idcdoc]'); else openiframe(event,this,'[idcdoc]');"
-     class="onefamico"
-     id="imgm[idcdoc]"
-     alt="[ftitle]"
-     title="[ftitle]"/>
-[ENDBLOCK SELECTMASTER]
-
-[BLOCK CHOOSEMASTERFAMILIES]
-<br />
-<input style="width:[izpx]px"  type="button" value="+"
-       title="[TEXT:master choose families]" 
-       onclick="subwindow(250,350,'onepref','[CORE_STANDURL]&amp;app=[APPNAME]&amp;action=ONEFAM_EDITMASTERPREF')"/>
-[ENDBLOCK CHOOSEMASTERFAMILIES]
-[BLOCK SEPARATOR]
-<hr  width="90%"/>
-[ENDBLOCK SEPARATOR]
-[BLOCK SELECTUSER]
-<img style="width:[izpx]px"
-     src="[iconsrc]"
-     id="imgu[idcdoc]"
-     onclick="if (ctrlPushed(event)) reloadiframe(event,this,'[idcdoc]'); else openiframe(event,this,'[idcdoc]');"
-     class="onefamico"
-     alt="[ftitle]"
-     title="[ftitle]"/>
-[ENDBLOCK SELECTUSER]
-<br/>
-[BLOCK CHOOSEUSERFAMILIES]
-<input style="width:[izpx]px" type="button" value="+"
-       title="[TEXT:choose user families]" 
-       onclick="subwindow(250,350,'onepref','[CORE_STANDURL]&amp;app=[APPNAME]&amp;action=ONEFAM_EDITPREF')"/>
-[ENDBLOCK CHOOSEUSERFAMILIES]
-
-    </div>
-</td><td  class="iframecell" id="tdiframe"></td></tr></table>
+                    [BLOCK CHOOSEMASTERFAMILIES]
+                    <button style="width:[izpx]px"
+                           title="[TEXT:master choose families]"
+                           onclick="subwindow(250,350,'onepref','[CORE_STANDURL]&amp;app=[APPNAME]&amp;action=ONEFAM_EDITMASTERPREF')">+</button>
+                    [ENDBLOCK CHOOSEMASTERFAMILIES]
+                    [BLOCK SEPARATOR]
+                    <hr  width="90%"/>
+                    [ENDBLOCK SEPARATOR]
+                    [BLOCK SELECTUSER]
+                    <img style="width:[izpx]px"
+                         src="[iconsrc]"
+                         id="imgu[idcdoc]"
+                         onclick="if (ctrlPushed(event)) reloadiframe(event,this,'[idcdoc]'); else openiframe(event,this,'[idcdoc]');"
+                         class="onefamico"
+                         alt="[ftitle]"
+                         title="[ftitle]"/>
+                    [ENDBLOCK SELECTUSER]
+                    [BLOCK CHOOSEUSERFAMILIES]
+                    <button style="width:[izpx]px"
+                           title="[TEXT:choose user families]"
+                           onclick="subwindow(250,350,'onepref','[CORE_STANDURL]&amp;app=[APPNAME]&amp;action=ONEFAM_EDITPREF')">+</button>
+                    [ENDBLOCK CHOOSEUSERFAMILIES]
+                </div>
+            </td>
+            <td class="iframecell" id="tdiframe"></td>
+        </tr>
+    </table>
 </body>
 </html>
