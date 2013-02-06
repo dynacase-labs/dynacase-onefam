@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<module name="@PACKAGE@-ext" disabled="no" version="@VERSION@"
-    release="@RELEASE@">
+<module name="@PACKAGE@" disabled="no" version="@VERSION@"
+    release="@RELEASE@" license="@LICENSE@">
 
-    <description>ExtJS user insterface for ONEFAM.
+    <description>ExtJS user interface for ONEFAM.
     </description>
 
     <requires>
