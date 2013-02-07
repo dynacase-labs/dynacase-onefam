@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <module name="@PACKAGE@-ext" disabled="no" version="@VERSION@"
-    release="@RELEASE@">
+    release="@RELEASE@" license="@LICENSE@">
 
-    <description>ExtJS user insterface for ONEFAM.
+    <description>ExtJS user interface for ONEFAM.
     </description>
 
     <requires>
-        <module name="@PACKAGE@" version="3.2" comp="ge" />
+        <module name="dynacase-onefam" version="3.2" comp="ge" />
         <module name="dynacase-extui" version="1.1" comp="ge"/>
     </requires>
 

@@ -5,9 +5,6 @@
 
 SUBDIR= Actions Images programs
 
-pages_not_xml = info.xml
-pages_not_php = fam2po.php po2js.php
-
 include $(utildir)/PubRule
 
 clean:

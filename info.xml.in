@@ -1,9 +1,8 @@
 <?xml version="1.0"?>
-<module name="@PACKAGE@" disabled="no" version="@VERSION@"
-    release="@RELEASE@">
+<module name="@PACKAGE@" version="@VERSION@"
+    release="@RELEASE@" license="@LICENSE@">
 
-    <description>One Familly Management.
-    </description>
+    <description>Interface to manage documents sorted by family</description>
 
     <requires>
         <module name="dynacase-core" version="3.2.5" comp="ge" />
@@ -24,8 +23,5 @@
         <process command="programs/post_migration ONEFAM" />
         <process command="programs/update_catalog" />
     </post-upgrade>
-
-    <changelog>
-    </changelog>
 
 </module>

@@ -17,24 +17,23 @@ export targetdir PACKAGE
 
 SUBDIR= Actions Images programs
 
-pages_not_xml = info.xml
-pages_not_php = fam2po.php po2js.php
-
 include $(utildir)/PubRule
 
-TRANSODS = 
+TRANSODS =
 DISTFILES += $(SUBDIR)  $(wildcard *.ods)\
             $(wildcard *.in) \
             VERSION RELEASE  \
-	    $(PACKAGE)_en.po $(PACKAGE)_fr.po 
+	    $(PACKAGE)_en.po $(PACKAGE)_fr.po
 
 webinst-ext:
-	make -C ONEFAM_EXT -e webinst RELEASE=$(RELEASE) PACKAGE=$(PACKAGE)-ext VERSION=$(VERSION) appname=$(appname)
+	cp LICENSE ONEFAM_EXT/
+	make -C ONEFAM_EXT -e webinst RELEASE=$(RELEASE) PACKAGE=$(PACKAGE)-ext VERSION=$(VERSION) appname=$(appname) LICENSE=$(LICENSE)
 	mv ONEFAM_EXT/*webinst .
 
 webinst: webinst-ext
 
 clean-ext:
+	rm ONEFAM_EXT/LICENSE
 	make -C ONEFAM_EXT clean
 
 clean: clean-ext
