@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>[TEXT:ONEFAM:SEARCH_MANAGEMENT:Handle search for] [FAM_TITLE]</title>
+    <link rel="icon" href="CORE/Images/dynacase.ico">
+    <link rel="SHORTCUT ICON" href="CORE/Images/dynacase.ico">
+    <link href="lib/jquery-ui/css/smoothness/jquery-ui.css?wv=[WVERSION]" rel="stylesheet" type="text/css"/>
+    <link href="ONEFAM/Layout/onefam_manage_search.css?wv=[VERSION]" rel="stylesheet" type="text/css"/>
+    <meta charset=utf-8/>
+</head>
+<body>
+<div id="main-zone" class="css-main-zone">
+    <div id="selection-zone" class="css-selection-zone">
+        <div id="creation" class="css-creation-zone-wrapper">
+            <div id="creation-search" class="css-creation-zone">
+                <button class="ui-button ui-corner-all css-creation-button ui-state-default js-creation-button">
+                    [TEXT:ONEFAM:SEARCH_MANAGEMENT:Create a search]
+                </button>
+            </div>
+            <div id="creation-report" class="css-creation-zone">
+                <button class="ui-button ui-corner-all css-creation-button ui-state-default js-creation-button">
+                    [TEXT:ONEFAM:SEARCH_MANAGEMENT:Create a report]
+                </button>
+            </div>
+        </div>
+        <div class="css-search-list-wrapper">
+            <div class="ui-state-highlight css-search-title">
+                [TEXT:ONEFAM:SEARCH_MANAGEMENT:List of search and report]
+            </div>
+            <div class="css-search-zone">
+                    <input id="search-zone-key" class="css-text-search ui-corner-all"
+                           placeholder="[TEXT:ONEFAM:SEARCH_MANAGEMENT:Key word]" title="[TEXT:ONEFAM:SEARCH_MANAGEMENT:Key word]"/>
+                    <span class="css-icon-search ui-icon ui-icon-search"></span>
+            </div>
+            <div id="search-list" class="css-search-list">
+                <ul id="search-list-content" class="css-search-list-content" style="display : none;">
+
+                </ul>
+                <div id="search-list-loading">[TEXT:ONEFAM:SEARCH_MANAGEMENT:Loading...]</div>
+            </div>
+        </div>
+    </div>
+    <div id="display-zone" class="css-display-zone">
+        <div id="search-edition" class="css-search-edition css-iframe-zone">
+            <iframe id="search-edition-iframe" class="css-iframe-content" src="Images/1x1.gif"></iframe>
+        </div>
+        <div id="search-display" class="css-search-display css-iframe-zone" style="display : none;">
+            <span id="close-search-display"
+                  title="[TEXT:ONEFAM:SEARCH_MANAGEMENT:Close the result]"
+                  class="ui-icon ui-icon-circle-close css-close-search-display"></span>
+            <iframe id="search-display-iframe" name="fvfolder" class="css-iframe-content" src="Images/1x1.gif"></iframe>
+        </div>
+    </div>
+</div>
+<div id="searchListMenu" class="css-search-list-menu css-search-list-menu-hidden">
+    <ul class="css-search-list-menu-content js-search-list-menu-content">
+        <li id="subMenuModify" class="css-search-list-menu-element">[TEXT:ONEFAM:SEARCH_MANAGEMENT:Modify]</li>
+        <li id="subMenuShowResult" class="css-search-list-menu-element">[TEXT:ONEFAM:SEARCH_MANAGEMENT:Show the result]</li>
+        <li id="subMenuSuppress" class="css-search-list-menu-element">[TEXT:ONEFAM:SEARCH_MANAGEMENT:Suppress it]</li>
+        <li id="subMenuFilter" class="css-search-list-menu-element">
+            <span id="filterText">[TEXT:ONEFAM:SEARCH_MANAGEMENT:Use it as filter]</span>
+            <span id="unfilterText">[TEXT:ONEFAM:SEARCH_MANAGEMENT:Suppres it from filter]</span>
+        </li>
+        <li id="subMenuShare" class="css-search-list-menu-element">
+            <span id="shareText">[TEXT:ONEFAM:SEARCH_MANAGEMENT:Share it]</span>
+            <span id="unshareText">[TEXT:ONEFAM:SEARCH_MANAGEMENT:Unshare it]</span>
+        </li>
+        <li id="subMenuUseIt" class="css-search-list-menu-element">
+            [TEXT:ONEFAM:SEARCH_MANAGEMENT:Use it now]
+        </li>
+    </ul>
+</div>
+<script src="lib/jquery/jquery.js?wv=[WVERSION]"></script>
+<script>
+    window.DCP = {};
+    window.DCP.manageSearch = {};
+    window.DCP.manageSearch.famId = "[FAM_ID]";
+    window.DCP.manageSearch.famTitle = "[FAM_TITLE]";
+    window.DCP.manageSearch.onefam = "[APPNAME]";
+    window.DCP.manageSearch.confirmSuppress = "[TEXT:ONEFAM:SEARCH_MANAGEMENT:Confirm suppress] ?";
+</script>
+<script src="ONEFAM/Layout/onefam_manage_search.js?version=[VERSION]"></script>
+</body>
+</html>

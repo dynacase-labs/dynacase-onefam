@@ -21,91 +21,112 @@
 // with this program; if not, write to the Free Software Foundation, Inc.,
 // 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 // ---------------------------------------------------------------
-$app_desc = array (
-"name"		=>"ONEFAM",		//Name
-"short_name"	=>N_("Onefam"),		//Short name
-"description"	=>N_("One Familly Management"),//long description
-"access_free"	=>"N",			//Access free ? (Y,N)
-"icon"		=>"onefam.gif",		//Icon
-"displayable"	=>"Y",			//Should be displayed on an app list (Y,N)
-"with_frame"	=>"Y",			//Use multiframe ? (Y,N)
-"childof"	=>"",			//
-"iorder"	=>110,                  // install order
+$app_desc = array(
+    "name" => "ONEFAM", //Name
+    "short_name" => N_("Onefam"), //Short name
+    "description" => N_("One Familly Management"), //long description
+    "access_free" => "N", //Access free ? (Y,N)
+    "icon" => "onefam.gif", //Icon
+    "displayable" => "Y", //Should be displayed on an app list (Y,N)
+    "with_frame" => "Y", //Use multiframe ? (Y,N)
+    "childof" => "", //
+    "iorder" => 110, // install order
 );
 
-$action_desc = array (
-  array( 
-   "name"		=>"ONEFAM_ROOT",
-   "short_name"		=>N_("one familly root"),
-   "acl"		=>"ONEFAM_READ",
-   "root"		=>"Y"
-  )  ,
-  array( 
-   "name"		=>"ONEFAM_GENROOT",
-   "short_name"		=>N_("one family generic root"),
-   "acl"		=>"ONEFAM_READ"
-  )  ,
-  array( 
-   "name"		=>"ONEFAM_LIST",
-   "short_name"		=>N_("familly list"),
-   "acl"		=>"ONEFAM_READ"
-  )  ,
-  array( 
-   "name"		=>"ONEFAM_TOGEN",
-   "short_name"		=>N_("redirect to generic"),
-   "acl"		=>"ONEFAM_READ"
-  )  ,
-  array( 
-   "name"		=>"ONEFAM_LOGO",
-   "short_name"		=>N_("familly result"),
-   "acl"		=>"ONEFAM_READ"
-  )  ,
-  array( 
-   "name"		=>"ONEFAM_EDITPREF",
-   "short_name"		=>N_("edit preferences"),
-   "acl"		=>"ONEFAM"
-  )  ,
-  array( 
-   "name"		=>"ONEFAM_MODPREF",
-   "short_name"		=>N_("modify preferences"),
-   "acl"		=>"ONEFAM"
-  ) ,
-  array( 
-   "name"               =>"ONEFAM_GETTREEFAMILY",
-   "short_name"         =>N_("get data for createtree family"),
-   "acl"                =>"ONEFAM"
-  ) ,
-  array( 
-   "name"		=>"ONEFAM_EDITMASTERPREF",
-   "short_name"		=>N_("edit master preferences"),
-   "layout"		=>"onefam_editpref.xml",
-   "script"		=>"onefam_editpref.php",
-   "function"		=>"onefam_editmasterpref",
-   "acl"		=>"ONEFAM_MASTER"
-  )  ,
-  array( 
-   "name"		=>"ONEFAM_MODMASTERPREF",
-   "short_name"		=>N_("modify master preferences"),
-   "layout"		=>"onefam_modpref.xml",
-   "script"		=>"onefam_modpref.php",
-   "function"		=>"onefam_modmasterpref",
-   "acl"		=>"ONEFAM_MASTER"
-  )
+$action_desc = array(
+    array(
+        "name" => "ONEFAM_ROOT",
+        "short_name" => N_("one familly root"),
+        "acl" => "ONEFAM_READ",
+        "root" => "Y"
+    ),
+    array(
+        "name" => "ONEFAM_GENROOT",
+        "short_name" => N_("one family generic root"),
+        "acl" => "ONEFAM_READ"
+    ),
+    array(
+        "name" => "ONEFAM_LIST",
+        "short_name" => N_("familly list"),
+        "acl" => "ONEFAM_READ"
+    ),
+    array(
+        "name" => "ONEFAM_TOGEN",
+        "short_name" => N_("redirect to generic"),
+        "acl" => "ONEFAM_READ"
+    ),
+    array(
+        "name" => "ONEFAM_LOGO",
+        "short_name" => N_("familly result"),
+        "acl" => "ONEFAM_READ"
+    ),
+    array(
+        "name" => "ONEFAM_EDITPREF",
+        "short_name" => N_("edit preferences"),
+        "acl" => "ONEFAM"
+    ),
+    array(
+        "name" => "ONEFAM_MODPREF",
+        "short_name" => N_("modify preferences"),
+        "acl" => "ONEFAM"
+    ),
+    array(
+        "name" => "ONEFAM_GETTREEFAMILY",
+        "short_name" => N_("get data for createtree family"),
+        "acl" => "ONEFAM"
+    ),
+    array(
+        "name" => "ONEFAM_EDITMASTERPREF",
+        "short_name" => N_("edit master preferences"),
+        "layout" => "onefam_editpref.xml",
+        "script" => "onefam_editpref.php",
+        "function" => "onefam_editmasterpref",
+        "acl" => "ONEFAM_MASTER"
+    ),
+    array(
+        "name" => "ONEFAM_MODMASTERPREF",
+        "short_name" => N_("modify master preferences"),
+        "layout" => "onefam_modpref.xml",
+        "script" => "onefam_modpref.php",
+        "function" => "onefam_modmasterpref",
+        "acl" => "ONEFAM_MASTER"
+    ),
+    array(
+        "name" => "ONEFAM_MANAGE_SEARCH",
+        "short_name" => N_("ONEFAM:SEARCH_MANAGEMENT"),
+        "layout" => "onefam_manage_search.html",
+        "script" => "onefam_manage_search.php"
+    ),
+    array(
+        "name" => "ONEFAM_MANAGE_SEARCH_GET_CONTENT",
+        "short_name" => N_("ONEFAM:ONEFAM_MANAGE_SEARCH_GET_CONTENT"),
+        "acl" => "ONEFAM_READ"
+    ),
+    array(
+        "name" => "ONEFAM_MANAGE_SHARE",
+        "short_name" => N_("ONEFAM:ONEFAM_MANAGE_SHARE"),
+        "acl" => "ONEFAM_READ"
+    ),
+    array(
+        "name" => "ONEFAM_MANAGE_SEARCH_TOGGLE_FILTER",
+        "short_name" => N_("ONEFAM:ONEFAM_MANAGE_SEARCH_TOGGLE_FILTER"),
+        "acl" => "ONEFAM_READ"
+    )
 );
 
-$app_acl = array (
-  
-  array(
-   "name"               =>"ONEFAM",
-   "description"        =>N_("To choose other families"),
-   "group_default"       =>"Y"),
-  array(
-   "name"               =>"ONEFAM_READ",
-   "description"        =>N_("Access To Read Card"),
-   "group_default"       =>"Y"),
-  array(
-   "name"               =>"ONEFAM_MASTER",
-   "description"        =>N_("Access choose masters families"),
-   "group_default"       =>"N"),
+$app_acl = array(
+
+    array(
+        "name" => "ONEFAM",
+        "description" => N_("To choose other families"),
+        "group_default" => "Y"),
+    array(
+        "name" => "ONEFAM_READ",
+        "description" => N_("Access To Read Card"),
+        "group_default" => "Y"),
+    array(
+        "name" => "ONEFAM_MASTER",
+        "description" => N_("Access choose masters families"),
+        "group_default" => "N"),
 );
 ?>

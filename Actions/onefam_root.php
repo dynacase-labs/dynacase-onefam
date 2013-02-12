@@ -105,6 +105,7 @@ function getTableFamilyList($idsfam, $izpx = null)
 
                 if ($cdoc->control('view') == "") {
                     $selectclass[$k]["idcdoc"] = $cdoc->initid;
+                    $selectclass[$k]["familyName"] = $cdoc->name;
                     $selectclass[$k]["ftitle"] = $cdoc->getHtmltitle();
                     $selectclass[$k]["iconsrc"] = $cdoc->getIcon('', $izpx);
                 }

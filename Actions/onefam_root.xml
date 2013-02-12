@@ -6,8 +6,8 @@
     <link rel="icon" href="[DYNACASE_FAVICO]"/>
     <link rel="shortcut icon" href="[DYNACASE_FAVICO]"/>
     <link rel="stylesheet" type="text/css" href="[CORE_SSTANDURL]app=FDL&amp;action=ALLVIEWCSS&amp;wv=[WVERSION]" />
+    <link href="lib/jquery-ui/css/smoothness/jquery-ui.css?wv=[WVERSION]" rel="stylesheet" type="text/css"/>
     [CSS:REF]
-    [JS:REF]
     <style type="text/css">
     [CSS:CODE]
     .ifonefam {
@@ -43,26 +43,16 @@
      [ENDIF oneBgColor]
     }
     </style>
-    <script language="javascript">
-        window.onefamParam = {
-            appName : "[APPNAME]",
-            [IF OPENFAM]openfam : "[openfam]",[ENDIF OPENFAM]
-            izpx : "[izpx]",
-            colNumber : "[colNumber]"
-        };
-    </script>
-    <script src="[ONEFAM_JS]"></script>
-
  </head>
 
 <body class="onefam" >
-    <div id="iconList" class="iconList">
+    <div id="iconList" class="iconList" style="display : none;">
         [BLOCK SELECTMASTER]
         <img style="width:[izpx]px"
              src="[iconsrc]"
-             onclick="if (ctrlPushed(event)) reloadiframe(event,this,'[idcdoc]'); else openiframe(event,this,'[idcdoc]');"
+             onclick="if (ctrlPushed(event)) reloadiframe(event,this,'[familyName]'); else openiframe(event,this,'[familyName]');"
              class="onefamico"
-             id="imgm[idcdoc]"
+             id="imgm[familyName]"
              alt="[ftitle]"
              title="[ftitle]"/>
         [ENDBLOCK SELECTMASTER]
@@ -78,8 +68,8 @@
         [BLOCK SELECTUSER]
         <img style="width:[izpx]px"
              src="[iconsrc]"
-             id="imgu[idcdoc]"
-             onclick="if (ctrlPushed(event)) reloadiframe(event,this,'[idcdoc]'); else openiframe(event,this,'[idcdoc]');"
+             id="imgu[familyName]"
+             onclick="if (ctrlPushed(event)) reloadiframe(event,this,'[familyName]'); else openiframe(event,this,'[familyName]');"
              class="onefamico"
              alt="[ftitle]"
              title="[ftitle]"/>
@@ -90,7 +80,22 @@
                onclick="subwindow(250,350,'onepref','[CORE_STANDURL]&amp;app=[APPNAME]&amp;action=ONEFAM_EDITPREF')">+</button>
         [ENDBLOCK CHOOSEUSERFAMILIES]
     </div>
-<div class="iframecell" id="tdiframe">
-</div>
+    <div class="iframecell" id="tdiframe">
+    </div>
+    <div id="loading">
+        Loading in progress...
+    </div>
+    <script src="lib/jquery/jquery.js?wv=[WVERSION]"></script>
+    <script src="lib/jquery-ui/js/jquery-ui.js?wv=[WVERSION]"></script>
+    [JS:REF]
+    <script language="javascript">
+      window.onefamParam = {
+          appName : "[APPNAME]",
+          [IF OPENFAM]openfam : "[openfam]",[ENDIF OPENFAM]
+          izpx : "[izpx]",
+          colNumber : "[colNumber]"
+      };
+    </script>
+    <script src="[ONEFAM_JS]"></script>
 </body>
 </html>

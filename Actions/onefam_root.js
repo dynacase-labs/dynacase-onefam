@@ -1,13 +1,97 @@
+/*
+GET.js v0.2
+Copyright © 2012 Mickaël Raybaud-Roig, All rights reserved.
+Licensed under the BSD 3-clause license, see the COPYING file for details
+*/
+
+(function () {
+
+    window.onefam = window.onefam || {};
+
+    window.onefam.iframeOverlay = null;
+
+    window.onefam.debounce = function (func, wait, immediate) {
+        var timeout, result;
+        return function () {
+            var context = this, args = arguments, callNow,
+                later = function () {
+                    timeout = null;
+                    if (!immediate) {
+                        result = func.apply(context, args);
+                    }
+                };
+            callNow = immediate && !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            if (callNow) {
+                result = func.apply(context, args);
+            }
+            return result;
+        };
+    };
+
+    window.openIframeOverlay = window.onefam.openIframeOverlay = function openIframeOverlay(target, callback) {
+        var $width = $(window).width() * 0.8,
+            $height = $(window).height() * 0.8;
+        if (!target) {
+            return;
+        }
+        window.onefam.iframeOverlay = $('<iframe class="overlay-iframe" style="padding: 0;" src="' + target + '" />');
+        window.onefam.iframeOverlay.dialog({
+            autoOpen :    true,
+            width :       $width,
+            height :      $height,
+            modal :       true,
+            resizable :   false,
+            autoResize :  true,
+            draggable :   false,
+            overlay :     {
+                opacity :    0.5,
+                background : "black"
+            },
+            beforeClose : function beforeClose() {
+                window.onefam.iframeOverlay.attr("src", "Images/1x1.gif");
+                return false;
+            }
+        }).width($width).height($height).on("load", function load() {
+            var $this = $(this), doc;
+            doc = this.contentDocument || this.contentWindow.document;
+            if (doc) {
+                window.onefam.iframeOverlay.dialog("option", "title", doc.title || "");
+            }
+            if (doc && doc.location && doc.location.href &&
+                    doc.location.href.toLowerCase().indexOf("images/1x1.gif") > -1) {
+                if ($.isFunction(callback)) {
+                    if (window.onefam.manageSearch && window.onefam.manageSearch.nextURL) {
+                        callback(window.onefam.manageSearch.nextURL);
+                        window.onefam.manageSearch.nextURL = null;
+                    } else {
+                        callback("reload");
+                    }
+                }
+                $this.remove();
+                window.onefam.iframeOverlay = null;
+            }
+        });
+    };
+
+}());
+
 var selimg = null;
 
 function imgborder() {
-    for (var i = 0; i < document.images.length; i++) {
+    var i;
+    for (i = 0; i < document.images.length; i += 1) {
         document.images[i].style.borderStyle = 'inset';
     }
 }
 function ctrlPushed(event) {
-    if (!event) event = window.event;
-    if (!event) return false;
+    if (!event) {
+        event = window.event;
+    }
+    if (!event) {
+        return false;
+    }
     return event.ctrlKey;
 }
 function openiframe(event, th, docid) {
@@ -26,7 +110,7 @@ function openiframe(event, th, docid) {
         reloadlist = true;
     }
     lif = document.getElementsByTagName('iframe');
-    for (i = 0, length = lif.length; i < length; i++) {
+    for (i = 0, length = lif.length; i < length; i += 1) {
         lif[i].style.display = 'none';
     }
     if (nf) {
@@ -116,7 +200,19 @@ if (window.onefamParam.openfam) {
 
 addEvent(window, 'load', function () {
     resizeIconList(window.onefamParam.colNumber);
+    document.getElementById('loading').style.display = "none";
+    document.getElementById('iconList').style.display = "";
 });
-addEvent(window, 'resize', function () {
+
+addEvent(window, 'resize', window.onefam.debounce(function () {
+    var $width = $(window).width() * 0.8,
+    $height = $(window).height() * 0.8;
+    if (window.onefam.iframeOverlay) {
+        window.onefam.iframeOverlay.dialog("option", {
+            width : $width,
+            height : $height
+        });
+        window.onefam.iframeOverlay.width($width).height($height);
+    }
     resizeIconListAtEnd(window.onefamParam.colNumber);
-});
+}, 500));
