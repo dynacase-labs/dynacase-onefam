@@ -13,12 +13,10 @@
  * @package FDL
  * @subpackage
  */
-/**
- */
-include_once ("GENERIC/generic_root.php");
+
+include_once "GENERIC/generic_root.php";
+
 function onefam_genroot(&$action)
 {
-    // -----------------------------------
     generic_root($action);
 }
-?>

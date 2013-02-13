@@ -4,16 +4,16 @@
 PACKAGE = @PACKAGE@
 VERSION = @VERSION@
 utildir=@PUBRULE@
+localBuildRule = @LOCAL_BUILD_RULE@
 pubdir = @prefix@
 srcdir = @srcdir@
 applib = FDL
 rootprefix=$(RPM_BUILD_ROOT)
 appname = @APPNAME@
-export pubdir utildir appname applib
 TAR = tar
 GZIP_ENV = --best
 
-export targetdir PACKAGE
+export pubdir utildir appname applib targetdir PACKAGE localBuildRule
 
 SUBDIR= Actions Images programs
 

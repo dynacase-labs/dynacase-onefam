@@ -16,10 +16,9 @@
 /**
  */
 
-include_once ("FDL/Class.Doc.php");
-include_once ("FDL/Lib.Dir.php");
+include_once "FDL/Lib.Dir.php";
 
-function onefam_editpref(&$action, $idsattr = "ONEFAM_IDS", $modaction = "ONEFAM_MODPREF")
+function onefam_editpref(Action &$action, $idsattr = "ONEFAM_IDS", $modaction = "ONEFAM_MODPREF")
 {
     $dbaccess = $action->GetParam("FREEDOM_DB");
     
@@ -59,4 +58,3 @@ function onefam_editmasterpref(&$action)
 {
     onefam_editpref($action, "ONEFAM_MIDS", "ONEFAM_MODMASTERPREF");
 }
-?>
