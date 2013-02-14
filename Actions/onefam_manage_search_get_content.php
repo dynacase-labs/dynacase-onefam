@@ -68,7 +68,6 @@ function onefam_manage_search_get_content(Action &$action)
 
         $return["data"] = array(
             "result" => array(),
-            "nbResult" => "",
             "uuid" => $uuid
         );
 
@@ -96,8 +95,13 @@ function onefam_manage_search_get_content(Action &$action)
             }
         }
 
-        usort($return["data"]["result"], function($abstract1, $abstract2) {
-            return strnatcasecmp($abstract1, $abstract2);
+        $collator = new Collator($action->GetParam('CORE_LANG', 'fr_FR'));
+
+        usort($return["data"]["result"], function ($abstract1, $abstract2) use ($collator)
+        {
+            /** @var Collator $collator */
+            return $collator->compare($abstract1["abstractData"]["title"],
+                $abstract2["abstractData"]["title"]);
         });
 
     } catch (Exception $e) {
