@@ -2,6 +2,7 @@
 
 require_once 'ONEFAM/onefam_manage_search_util.php';
 require_once 'FDL/freedom_util.php';
+require_once "GENERIC/generic_util.php";
 
 /**
  * Get the search for the list of onefam_manage_search
@@ -21,7 +22,7 @@ function onefam_manage_search_get_content(Action &$action)
         $dbaccess = $action->GetParam("FREEDOM_DB");
         $actionUsage = new ActionUsage($action);
 
-        $famId = $actionUsage->addRequiredParameter("famId", "famId");
+        $famId = $actionUsage->addRequiredParameter("famid", "famid");
         $uuid = $actionUsage->addRequiredParameter("uuid", "uuid");
 
         $keyWord = $actionUsage->addOptionalParameter("keyWord", "keyWord", array(), '');
@@ -34,8 +35,6 @@ function onefam_manage_search_get_content(Action &$action)
         if ($famId && (!is_numeric($famId))) {
             $famId = getFamIdFromName($dbaccess, $famId);
         }
-
-        $keyWords = array();
 
         $search = new SearchDoc("", "DSEARCH");
         $search->setStart($start);
@@ -57,6 +56,8 @@ function onefam_manage_search_get_content(Action &$action)
             "uuid" => $uuid
         );
 
+        $defaultSearchId = getDefU($action, "GENE_PREFSEARCH");
+
         $famDoc = new_Doc("", $famId);
         $dfldid = $famDoc->dfldid;
 
@@ -64,7 +65,6 @@ function onefam_manage_search_get_content(Action &$action)
 
         if ($dfldid) {
             $folderDoc = new_Doc("", $dfldid);
-            error_log(__METHOD__.var_export($folderDoc->isLocked(true), true));
             if ($folderDoc->isAlive()
                 && $folderDoc->control("modify") == ""
                 && !$folderDoc->isLocked(true)) {
@@ -74,7 +74,7 @@ function onefam_manage_search_get_content(Action &$action)
 
         foreach ($search->getDocumentList() as $currentDocument) {
             /* @var $currentDocument Doc */
-            $return["data"]["result"][] = getSearchAbstract($dbaccess, $currentDocument, $folder);
+            $return["data"]["result"][] = getSearchAbstract($dbaccess, $currentDocument, $defaultSearchId, $folder);
         }
 
     } catch (Exception $e) {

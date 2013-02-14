@@ -111,6 +111,11 @@ $action_desc = array(
         "name" => "ONEFAM_MANAGE_SEARCH_TOGGLE_FILTER",
         "short_name" => N_("ONEFAM:ONEFAM_MANAGE_SEARCH_TOGGLE_FILTER"),
         "acl" => "ONEFAM_READ"
+    ),
+    array(
+        "name" => "ONEFAM_MANAGE_SEARCH_TOGGLE_DEFAULT",
+        "short_name" => N_("ONEFAM:ONEFAM_MANAGE_SEARCH_TOGGLE_DEFAULT"),
+        "acl" => "ONEFAM_READ"
     )
 );
 

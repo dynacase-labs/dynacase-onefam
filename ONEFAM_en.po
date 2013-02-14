@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ZOO\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-12 16:27+0100\n"
+"POT-Creation-Date: 2013-02-14 10:47+0100\n"
 "PO-Revision-Date: 2013-01-15 11:24+0100\n"
 "Last-Translator: John Doe <john.doe@somewhere.org>\n"
 "Language-Team: English <distrib@somewhere.org>\n"
@@ -11,19 +11,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ONEFAM.app:125
+#: ONEFAM.app:130
 msgid "Access To Read Card"
 msgstr ""
 
-#: ONEFAM.app:129
+#: ONEFAM.app:134
 msgid "Access choose masters families"
 msgstr ""
 
-#: tempCatalog.php:23 tempCatalog.php:25
+#: tempCatalog.php:25 tempCatalog.php:27
 msgid "Choose visibles families"
 msgstr "Start search"
 
-#: tempCatalog.php:29
+#: tempCatalog.php:31
 msgid "Close"
 msgstr ""
 
@@ -47,16 +47,20 @@ msgstr ""
 msgid "Family is not instanciate"
 msgstr ""
 
-#: tempCatalog.php:22
+#: tempCatalog.php:24
 msgid "Generic Management"
 msgstr ""
 
-#: tempCatalog.php:27
+#: tempCatalog.php:29
 msgid "No family first"
 msgstr "Start search"
 
 #: ONEFAM.app:102
 msgid "ONEFAM:ONEFAM_MANAGE_SEARCH_GET_CONTENT"
+msgstr ""
+
+#: ONEFAM.app:117
+msgid "ONEFAM:ONEFAM_MANAGE_SEARCH_TOGGLE_DEFAULT"
 msgstr ""
 
 #: ONEFAM.app:112
@@ -71,73 +75,89 @@ msgstr ""
 msgid "ONEFAM:SEARCH_MANAGEMENT"
 msgstr ""
 
-#: Actions/onefam_manage_search_util.php:39
+#: Actions/onefam_manage_search_util.php:42
 msgid "ONEFAM:SEARCH_MANAGEMENT:Click to see sub menu"
-msgstr ""
+msgstr "Click to see sub menu"
 
 #: tempCatalog.php:12
 msgid "ONEFAM:SEARCH_MANAGEMENT:Close the result"
-msgstr ""
+msgstr "Close the result"
 
-#: tempCatalog.php:21
+#: tempCatalog.php:23
 msgid "ONEFAM:SEARCH_MANAGEMENT:Confirm suppress"
-msgstr ""
+msgstr "Confirm suppress"
 
 #: tempCatalog.php:7
 msgid "ONEFAM:SEARCH_MANAGEMENT:Create a report"
-msgstr ""
+msgstr "Create a report"
 
 #: tempCatalog.php:6
 msgid "ONEFAM:SEARCH_MANAGEMENT:Create a search"
-msgstr ""
+msgstr "Create a search"
 
 #: tempCatalog.php:5
 msgid "ONEFAM:SEARCH_MANAGEMENT:Handle search for"
-msgstr ""
+msgstr "Handle search for"
 
 #: tempCatalog.php:9 tempCatalog.php:10
 msgid "ONEFAM:SEARCH_MANAGEMENT:Key word"
-msgstr ""
+msgstr "Search"
 
 #: tempCatalog.php:8
 msgid "ONEFAM:SEARCH_MANAGEMENT:List of search and report"
-msgstr ""
+msgstr "List of search and report"
 
 #: tempCatalog.php:11
 msgid "ONEFAM:SEARCH_MANAGEMENT:Loading..."
-msgstr ""
+msgstr "Loading..."
 
 #: tempCatalog.php:13
 msgid "ONEFAM:SEARCH_MANAGEMENT:Modify"
-msgstr ""
+msgstr "Modify"
+
+#: Actions/onefam_manage_search_util.php:48
+msgid "ONEFAM:SEARCH_MANAGEMENT:Presented in the filter list"
+msgstr "Presented in the filter list"
+
+#: tempCatalog.php:20
+msgid "ONEFAM:SEARCH_MANAGEMENT:Select as default search"
+msgstr "Select as default search"
+
+#: Actions/onefam_manage_search_util.php:45
+msgid "ONEFAM:SEARCH_MANAGEMENT:Selected as default search"
+msgstr "Selected as default search"
 
 #: tempCatalog.php:18
 msgid "ONEFAM:SEARCH_MANAGEMENT:Share it"
-msgstr ""
+msgstr "Share it"
 
-#: tempCatalog.php:14
+#: tempCatalog.php:15
 msgid "ONEFAM:SEARCH_MANAGEMENT:Show the result"
-msgstr ""
+msgstr "Show the result"
 
 #: tempCatalog.php:17
 msgid "ONEFAM:SEARCH_MANAGEMENT:Suppres it from filter"
-msgstr ""
+msgstr "Suppres it from filter"
 
-#: tempCatalog.php:15
+#: tempCatalog.php:14
 msgid "ONEFAM:SEARCH_MANAGEMENT:Suppress it"
-msgstr ""
+msgstr "Suppress it"
+
+#: tempCatalog.php:21
+msgid "ONEFAM:SEARCH_MANAGEMENT:Unselect as default search"
+msgstr "Unselect as default search"
 
 #: tempCatalog.php:19
 msgid "ONEFAM:SEARCH_MANAGEMENT:Unshare it"
-msgstr ""
+msgstr "Unshare it"
 
 #: tempCatalog.php:16
 msgid "ONEFAM:SEARCH_MANAGEMENT:Use it as filter"
 msgstr ""
 
-#: tempCatalog.php:20
+#: tempCatalog.php:22
 msgid "ONEFAM:SEARCH_MANAGEMENT:Use it now"
-msgstr ""
+msgstr "Use it now"
 
 #: ONEFAM.app:27
 msgid "One Familly Management"
@@ -147,7 +167,7 @@ msgstr ""
 msgid "Onefam"
 msgstr "Lastname"
 
-#: tempCatalog.php:30
+#: tempCatalog.php:32
 msgid "Starting of"
 msgstr ""
 
@@ -156,11 +176,11 @@ msgstr ""
 msgid "This action requires the installation of Dynacase Extui module"
 msgstr ""
 
-#: ONEFAM.app:121
+#: ONEFAM.app:126
 msgid "To choose other families"
 msgstr ""
 
-#: tempCatalog.php:28
+#: tempCatalog.php:30
 msgid "Validate"
 msgstr "Edit"
 
@@ -244,7 +264,7 @@ msgstr ""
 msgid "one family generic root"
 msgstr "Start search"
 
-#: tempCatalog.php:26
+#: tempCatalog.php:28
 msgid "open first family"
 msgstr "Category"
 
@@ -256,7 +276,7 @@ msgstr ""
 msgid "redirect to generic"
 msgstr "Start search"
 
-#: tempCatalog.php:24
+#: tempCatalog.php:26
 msgid "set as first family view"
 msgstr "Organistation"
 
