@@ -91,7 +91,10 @@ body {
 }
 
 .css-abstract-symbol {
+    position: relative;
+    top: 1px;
     float: left;
+    border: 0;
 }
 
 .css-abstractTextZone {

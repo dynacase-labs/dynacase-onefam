@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ZOO\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-14 10:47+0100\n"
+"POT-Creation-Date: 2013-02-14 12:39+0100\n"
 "PO-Revision-Date: 2013-01-15 11:24+0100\n"
 "Last-Translator: John Doe <john.doe@somewhere.org>\n"
 "Language-Team: English <distrib@somewhere.org>\n"
@@ -68,7 +68,7 @@ msgid "ONEFAM:ONEFAM_MANAGE_SEARCH_TOGGLE_FILTER"
 msgstr ""
 
 #: ONEFAM.app:107
-msgid "ONEFAM:ONEFAM_MANAGE_SHARE"
+msgid "ONEFAM:ONEFAM_MANAGE_SEARCH_TOGGLE_SHARE"
 msgstr ""
 
 #: ONEFAM.app:96
@@ -99,9 +99,13 @@ msgstr "Create a search"
 msgid "ONEFAM:SEARCH_MANAGEMENT:Handle search for"
 msgstr "Handle search for"
 
+#: Actions/onefam_manage_search_util.php:49
+msgid "ONEFAM:SEARCH_MANAGEMENT:Is a shared research"
+msgstr "Is a shared research"
+
 #: tempCatalog.php:9 tempCatalog.php:10
 msgid "ONEFAM:SEARCH_MANAGEMENT:Key word"
-msgstr "Search"
+msgstr "Filter"
 
 #: tempCatalog.php:8
 msgid "ONEFAM:SEARCH_MANAGEMENT:List of search and report"
@@ -115,17 +119,13 @@ msgstr "Loading..."
 msgid "ONEFAM:SEARCH_MANAGEMENT:Modify"
 msgstr "Modify"
 
-#: Actions/onefam_manage_search_util.php:48
+#: Actions/onefam_manage_search_util.php:52
 msgid "ONEFAM:SEARCH_MANAGEMENT:Presented in the filter list"
 msgstr "Presented in the filter list"
 
 #: tempCatalog.php:20
 msgid "ONEFAM:SEARCH_MANAGEMENT:Select as default search"
 msgstr "Select as default search"
-
-#: Actions/onefam_manage_search_util.php:45
-msgid "ONEFAM:SEARCH_MANAGEMENT:Selected as default search"
-msgstr "Selected as default search"
 
 #: tempCatalog.php:18
 msgid "ONEFAM:SEARCH_MANAGEMENT:Share it"
@@ -153,7 +153,7 @@ msgstr "Unshare it"
 
 #: tempCatalog.php:16
 msgid "ONEFAM:SEARCH_MANAGEMENT:Use it as filter"
-msgstr ""
+msgstr "Use it as filter"
 
 #: tempCatalog.php:22
 msgid "ONEFAM:SEARCH_MANAGEMENT:Use it now"
@@ -295,3 +295,6 @@ msgstr "Start search"
 #: ONEFAM_init.php:24
 msgid "visible user families"
 msgstr "Start search"
+
+#~ msgid "ONEFAM:SEARCH_MANAGEMENT:Selected as default search"
+#~ msgstr "Selected as default search"

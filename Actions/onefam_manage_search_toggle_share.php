@@ -9,7 +9,7 @@ require_once 'FDL/Lib.Dir.php';
  * @param Action $action
  * @throws Exception
  */
-function onefam_manage_share(Action &$action)
+function onefam_manage_search_toggle_share(Action &$action)
 {
     $return = array(
         "success" => true,

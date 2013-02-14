@@ -40,13 +40,20 @@ function getSearchAbstract($dbaccess, Doc $currentDocument, $defaultSearchId, $f
  */
 function generateSearchAbstractHTML(Array $abstractData) {
     $title = _("ONEFAM:SEARCH_MANAGEMENT:Click to see sub menu");
-    $iconPart = "";
     if ($abstractData["isDefault"]) {
-        $iconPart .= '<span class="ui-icon ui-icon-circle-check" title="'._("ONEFAM:SEARCH_MANAGEMENT:Selected as default search").'"></span>';
+        $iconPart = '<span class="ui-icon ui-icon-circle-check "
+        title="'._("ONEFAM:SEARCH_MANAGEMENT:Selected as default search").'"></span>';
     }
-    if ($abstractData["isInFamilyDir"] || $abstractData["isInFilter"]) {
-        $iconPart .= '<span class="ui-icon ui-icon-circle-zoomin"  title="'._("ONEFAM:SEARCH_MANAGEMENT:Presented in the filter list").'"></span>';
+    else if ($abstractData["isInFamilyDir"]) {
+        $iconPart = '<span class="ui-icon ui-icon-circle-zoomin" title="'
+            ._("ONEFAM:SEARCH_MANAGEMENT:Is a shared research").'"></span>';
+    } else if ($abstractData["isInFilter"]) {
+        $iconPart = '<span class="ui-icon ui-icon-circle-zoomin" title="'
+            ._("ONEFAM:SEARCH_MANAGEMENT:Presented in the filter list").'"></span>';
+    } else {
+        $iconPart = '<span class="ui-icon" style="visibility: hidden;"></span>';
     }
+    $iconPart = '<div class="css-abstract-symbol '.($abstractData["isInFilter"] ? "ui-state-highlight" : "").'">'.$iconPart.'</div>';
 return <<<"TEMPLATE"
 <li class="css-abstract" data-url="{$abstractData["url"]}"
     data-id="{$abstractData["id"]}"
@@ -57,9 +64,7 @@ return <<<"TEMPLATE"
     data-is-report="{$abstractData["isReport"]}"
     data-is-default="{$abstractData["isDefault"]}"
     >
-    <div class="css-abstract-symbol">
-        $iconPart
-    </div>
+    $iconPart
     <div class="css-abstractTextZone">
         <span class="css-abstractTitle">{$abstractData["title"]}</span>
     </div>

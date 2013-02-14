@@ -22,6 +22,10 @@ function onefam_manage_search_toggle_default(Action &$action)
             setFamilyParameter($action, $famId, 'GENE_PREFSEARCH', "");
         }else {
             setFamilyParameter($action, $famId, 'GENE_PREFSEARCH', $searchId);
+            $search = new_Doc("", $searchId);
+            $search->setValue("se_memo","yes");
+            $search->disableEditControl();
+            $search->store();
         }
 
     } catch (Exception $e) {

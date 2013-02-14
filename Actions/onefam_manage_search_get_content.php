@@ -36,26 +36,6 @@ function onefam_manage_search_get_content(Action &$action)
             $famId = getFamIdFromName($dbaccess, $famId);
         }
 
-        $search = new SearchDoc("", "DSEARCH");
-        $search->setStart($start);
-        $search->setSlice($slice);
-        $search->addFilter("owner = %s", $action->user->id);
-        $search->addFilter("se_famid = '%s'", $famId);
-        $search->orderby = 'title';
-        if ($keyWord) {
-            $keyWords = explode(" ", $keyWord);
-            foreach ($keyWords as $currentKeyWord) {
-                $search->addFilter("svalues ~* '%s'", $currentKeyWord);
-            }
-        }
-        $search->setObjectReturn();
-
-        $return["data"] = array(
-            "result" => array(),
-            "nbResult" => "",
-            "uuid" => $uuid
-        );
-
         $defaultSearchId = getDefU($action, "GENE_PREFSEARCH");
 
         $famDoc = new_Doc("", $famId);
@@ -72,10 +52,53 @@ function onefam_manage_search_get_content(Action &$action)
             }
         }
 
+        $search = new SearchDoc("", "DSEARCH");
+        $search->setStart($start);
+        $search->setSlice($slice);
+        $search->addFilter("owner = %s", $action->user->id);
+        $search->addFilter("se_famid = '%s'", $famId);
+        $search->orderby = 'title';
+        if ($keyWord) {
+            $keyWords = explode(" ", $keyWord);
+            foreach ($keyWords as $currentKeyWord) {
+                $search->addFilter("title ~* '%s'", $currentKeyWord);
+            }
+        }
+        $search->setObjectReturn();
+
+        $return["data"] = array(
+            "result" => array(),
+            "nbResult" => "",
+            "uuid" => $uuid
+        );
+
         foreach ($search->getDocumentList() as $currentDocument) {
             /* @var $currentDocument Doc */
-            $return["data"]["result"][] = getSearchAbstract($dbaccess, $currentDocument, $defaultSearchId, $folder);
+            $return["data"]["result"][$currentDocument->getPropertyValue("id")] = getSearchAbstract($dbaccess, $currentDocument, $defaultSearchId, $folder);
         }
+
+        if ($dfldid) {
+            $search = new SearchDoc("", "DSEARCH");
+            $search->useCollection($dfldid);
+            $search->setStart($start);
+            $search->setSlice($slice);
+            $search->orderby = 'title';
+            if ($keyWord) {
+                $keyWords = explode(" ", $keyWord);
+                foreach ($keyWords as $currentKeyWord) {
+                    $search->addFilter("title ~* '%s'", $currentKeyWord);
+                }
+            }
+            $search->setObjectReturn();
+            foreach ($search->getDocumentList() as $currentDocument) {
+               /* @var $currentDocument Doc */
+               $return["data"]["result"][$currentDocument->getPropertyValue("id")] = getSearchAbstract($dbaccess, $currentDocument, $defaultSearchId, $folder);
+            }
+        }
+
+        usort($return["data"]["result"], function($abstract1, $abstract2) {
+            return strnatcasecmp($abstract1, $abstract2);
+        });
 
     } catch (Exception $e) {
         $return["success"] = false;

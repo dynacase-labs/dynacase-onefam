@@ -12,16 +12,20 @@
 <div id="main-zone" class="css-main-zone">
     <div id="selection-zone" class="css-selection-zone">
         <div id="creation" class="css-creation-zone-wrapper">
+            [IF CANCREATE_DSEARCH]
             <div id="creation-search" class="css-creation-zone">
                 <button class="ui-button ui-corner-all css-creation-button ui-state-default js-creation-button">
                     [TEXT:ONEFAM:SEARCH_MANAGEMENT:Create a search]
                 </button>
             </div>
+            [ENDIF CANCREATE_DSEARCH]
+            [IF CANCREATE_REPORT]
             <div id="creation-report" class="css-creation-zone">
                 <button class="ui-button ui-corner-all css-creation-button ui-state-default js-creation-button">
                     [TEXT:ONEFAM:SEARCH_MANAGEMENT:Create a report]
                 </button>
             </div>
+            [ENDIF CANCREATE_REPORT]
         </div>
         <div class="css-search-list-wrapper">
             <div class="ui-state-highlight css-search-title">

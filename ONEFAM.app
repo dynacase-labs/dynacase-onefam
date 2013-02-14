@@ -103,8 +103,8 @@ $action_desc = array(
         "acl" => "ONEFAM_READ"
     ),
     array(
-        "name" => "ONEFAM_MANAGE_SHARE",
-        "short_name" => N_("ONEFAM:ONEFAM_MANAGE_SHARE"),
+        "name" => "ONEFAM_MANAGE_SEARCH_TOGGLE_SHARE",
+        "short_name" => N_("ONEFAM:ONEFAM_MANAGE_SEARCH_TOGGLE_SHARE"),
         "acl" => "ONEFAM_READ"
     ),
     array(

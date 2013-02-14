@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TEMPLATE\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-14 10:47+0100\n"
+"POT-Creation-Date: 2013-02-14 12:39+0100\n"
 "PO-Revision-Date: 2013-01-15 11:42+0100\n"
 "Last-Translator: Jean Martin <jean.martin@somewhere.org>\n"
 "Language-Team: French <distrib@somewhere.org>\n"
@@ -69,8 +69,8 @@ msgid "ONEFAM:ONEFAM_MANAGE_SEARCH_TOGGLE_FILTER"
 msgstr "Gestion des recherches : modifier l'état filtre"
 
 #: ONEFAM.app:107
-msgid "ONEFAM:ONEFAM_MANAGE_SHARE"
-msgstr "Gestion des recherches : gérer le partage"
+msgid "ONEFAM:ONEFAM_MANAGE_SEARCH_TOGGLE_SHARE"
+msgstr ""
 
 #: ONEFAM.app:96
 msgid "ONEFAM:SEARCH_MANAGEMENT"
@@ -100,9 +100,13 @@ msgstr "Créer une recherche"
 msgid "ONEFAM:SEARCH_MANAGEMENT:Handle search for"
 msgstr "Gérer les recherches et les rapports de"
 
+#: Actions/onefam_manage_search_util.php:49
+msgid "ONEFAM:SEARCH_MANAGEMENT:Is a shared research"
+msgstr "Est une recherche par défaut"
+
 #: tempCatalog.php:9 tempCatalog.php:10
 msgid "ONEFAM:SEARCH_MANAGEMENT:Key word"
-msgstr "Recherche"
+msgstr "Filtrer"
 
 #: tempCatalog.php:8
 msgid "ONEFAM:SEARCH_MANAGEMENT:List of search and report"
@@ -116,16 +120,12 @@ msgstr "Chargement"
 msgid "ONEFAM:SEARCH_MANAGEMENT:Modify"
 msgstr "Modifier"
 
-#: Actions/onefam_manage_search_util.php:48
+#: Actions/onefam_manage_search_util.php:52
 msgid "ONEFAM:SEARCH_MANAGEMENT:Presented in the filter list"
-msgstr "Présent dans la liste des filtre"
+msgstr "Présent dans la liste des filtres"
 
 #: tempCatalog.php:20
 msgid "ONEFAM:SEARCH_MANAGEMENT:Select as default search"
-msgstr "Sélectionné comme recherche par défaut"
-
-#: Actions/onefam_manage_search_util.php:45
-msgid "ONEFAM:SEARCH_MANAGEMENT:Selected as default search"
 msgstr "Sélectionné comme recherche par défaut"
 
 #: tempCatalog.php:18
@@ -296,6 +296,12 @@ msgstr "familles administratives visibles"
 #: ONEFAM_init.php:24
 msgid "visible user families"
 msgstr "familles personnelles visibles"
+
+#~ msgid "ONEFAM:ONEFAM_MANAGE_SHARE"
+#~ msgstr "Gestion des recherches : gérer le partage"
+
+#~ msgid "ONEFAM:SEARCH_MANAGEMENT:Selected as default search"
+#~ msgstr "Sélectionné comme recherche par défaut"
 
 #~ msgid "ONEFAM:SEARCH_MANAGEMENT:Use It as filter"
 #~ msgstr "Utiliser comme filtre"

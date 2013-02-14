@@ -446,7 +446,7 @@
      */
     $("#subMenuShare").on("click", function () {
         var id = $("#searchListMenu").data("id");
-        handleAjaxRequest($.get("?app=ONEFAM&action=ONEFAM_MANAGE_SHARE",
+        handleAjaxRequest($.get("?app=ONEFAM&action=ONEFAM_MANAGE_SEARCH_TOGGLE_SHARE",
             {
                 searchId : id,
                 famId : window.DCP.manageSearch.famId
