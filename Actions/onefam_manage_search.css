@@ -81,7 +81,6 @@ body {
 }
 
 .css-abstract {
-    width: 197px;
     min-height: 2em;
     line-height: 1.5em;
     border: 1px solid rgb(231, 231, 231);
@@ -99,7 +98,7 @@ body {
 
 .css-abstractTextZone {
     float: left;
-    width: 138px;
+    width: 120px;
 }
 
 .css-abstractIconZone {
