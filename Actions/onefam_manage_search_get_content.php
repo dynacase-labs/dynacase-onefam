@@ -2,6 +2,7 @@
 
 require_once 'ONEFAM/onefam_manage_search_util.php';
 require_once 'FDL/freedom_util.php';
+require_once "GENERIC/generic_util.php";
 
 /**
  * Get the search for the list of onefam_manage_search
@@ -21,7 +22,7 @@ function onefam_manage_search_get_content(Action &$action)
         $dbaccess = $action->GetParam("FREEDOM_DB");
         $actionUsage = new ActionUsage($action);
 
-        $famId = $actionUsage->addRequiredParameter("famId", "famId");
+        $famId = $actionUsage->addRequiredParameter("famid", "famid");
         $uuid = $actionUsage->addRequiredParameter("uuid", "uuid");
 
         $keyWord = $actionUsage->addOptionalParameter("keyWord", "keyWord", array(), '');
@@ -35,7 +36,21 @@ function onefam_manage_search_get_content(Action &$action)
             $famId = getFamIdFromName($dbaccess, $famId);
         }
 
-        $keyWords = array();
+        $defaultSearchId = getDefU($action, "GENE_PREFSEARCH");
+
+        $famDoc = new_Doc("", $famId);
+        $dfldid = $famDoc->dfldid;
+
+        $folder = null;
+
+        if ($dfldid) {
+            $folderDoc = new_Doc("", $dfldid);
+            if ($folderDoc->isAlive()
+                && $folderDoc->control("modify") == ""
+                && !$folderDoc->isLocked(true)) {
+                $folder = $dfldid;
+            }
+        }
 
         $search = new SearchDoc("", "DSEARCH");
         $search->setStart($start);
@@ -46,7 +61,7 @@ function onefam_manage_search_get_content(Action &$action)
         if ($keyWord) {
             $keyWords = explode(" ", $keyWord);
             foreach ($keyWords as $currentKeyWord) {
-                $search->addFilter("svalues ~* '%s'", $currentKeyWord);
+                $search->addFilter("title ~* '%s'", $currentKeyWord);
             }
         }
         $search->setObjectReturn();
@@ -57,25 +72,33 @@ function onefam_manage_search_get_content(Action &$action)
             "uuid" => $uuid
         );
 
-        $famDoc = new_Doc("", $famId);
-        $dfldid = $famDoc->dfldid;
-
-        $folder = null;
+        foreach ($search->getDocumentList() as $currentDocument) {
+            /* @var $currentDocument Doc */
+            $return["data"]["result"][$currentDocument->getPropertyValue("id")] = getSearchAbstract($dbaccess, $currentDocument, $defaultSearchId, $folder);
+        }
 
         if ($dfldid) {
-            $folderDoc = new_Doc("", $dfldid);
-            error_log(__METHOD__.var_export($folderDoc->isLocked(true), true));
-            if ($folderDoc->isAlive()
-                && $folderDoc->control("modify") == ""
-                && !$folderDoc->isLocked(true)) {
-                $folder = $dfldid;
+            $search = new SearchDoc("", "DSEARCH");
+            $search->useCollection($dfldid);
+            $search->setStart($start);
+            $search->setSlice($slice);
+            $search->orderby = 'title';
+            if ($keyWord) {
+                $keyWords = explode(" ", $keyWord);
+                foreach ($keyWords as $currentKeyWord) {
+                    $search->addFilter("title ~* '%s'", $currentKeyWord);
+                }
+            }
+            $search->setObjectReturn();
+            foreach ($search->getDocumentList() as $currentDocument) {
+               /* @var $currentDocument Doc */
+               $return["data"]["result"][$currentDocument->getPropertyValue("id")] = getSearchAbstract($dbaccess, $currentDocument, $defaultSearchId, $folder);
             }
         }
 
-        foreach ($search->getDocumentList() as $currentDocument) {
-            /* @var $currentDocument Doc */
-            $return["data"]["result"][] = getSearchAbstract($dbaccess, $currentDocument, $folder);
-        }
+        usort($return["data"]["result"], function($abstract1, $abstract2) {
+            return strnatcasecmp($abstract1, $abstract2);
+        });
 
     } catch (Exception $e) {
         $return["success"] = false;

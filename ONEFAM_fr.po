@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TEMPLATE\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-12 16:27+0100\n"
+"POT-Creation-Date: 2013-02-14 12:39+0100\n"
 "PO-Revision-Date: 2013-01-15 11:42+0100\n"
 "Last-Translator: Jean Martin <jean.martin@somewhere.org>\n"
 "Language-Team: French <distrib@somewhere.org>\n"
@@ -12,19 +12,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ONEFAM.app:125
+#: ONEFAM.app:130
 msgid "Access To Read Card"
 msgstr "Accès à la lecture"
 
-#: ONEFAM.app:129
+#: ONEFAM.app:134
 msgid "Access choose masters families"
 msgstr "Accès au choix des familles visibles administratives"
 
-#: tempCatalog.php:23 tempCatalog.php:25
+#: tempCatalog.php:25 tempCatalog.php:27
 msgid "Choose visibles families"
 msgstr "Choix des familles visibles"
 
-#: tempCatalog.php:29
+#: tempCatalog.php:31
 msgid "Close"
 msgstr "Fermer"
 
@@ -48,11 +48,11 @@ msgstr "la famille (#%d) n'est pas référencée"
 msgid "Family is not instanciate"
 msgstr "La famille n'est pas instanciée"
 
-#: tempCatalog.php:22
+#: tempCatalog.php:24
 msgid "Generic Management"
 msgstr "Gestion générique"
 
-#: tempCatalog.php:27
+#: tempCatalog.php:29
 msgid "No family first"
 msgstr "Pas de famille ouverte par défaut"
 
@@ -60,19 +60,23 @@ msgstr "Pas de famille ouverte par défaut"
 msgid "ONEFAM:ONEFAM_MANAGE_SEARCH_GET_CONTENT"
 msgstr "ONEFAM : gestion des recherches (voir mes recherches)"
 
+#: ONEFAM.app:117
+msgid "ONEFAM:ONEFAM_MANAGE_SEARCH_TOGGLE_DEFAULT"
+msgstr ""
+
 #: ONEFAM.app:112
 msgid "ONEFAM:ONEFAM_MANAGE_SEARCH_TOGGLE_FILTER"
 msgstr "Gestion des recherches : modifier l'état filtre"
 
 #: ONEFAM.app:107
-msgid "ONEFAM:ONEFAM_MANAGE_SHARE"
-msgstr "Gestion des recherches : gérer le partage"
+msgid "ONEFAM:ONEFAM_MANAGE_SEARCH_TOGGLE_SHARE"
+msgstr ""
 
 #: ONEFAM.app:96
 msgid "ONEFAM:SEARCH_MANAGEMENT"
 msgstr "ONEFAM : gestion des recherches"
 
-#: Actions/onefam_manage_search_util.php:39
+#: Actions/onefam_manage_search_util.php:42
 msgid "ONEFAM:SEARCH_MANAGEMENT:Click to see sub menu"
 msgstr "Cliquer pour voir le sous menu"
 
@@ -80,7 +84,7 @@ msgstr "Cliquer pour voir le sous menu"
 msgid "ONEFAM:SEARCH_MANAGEMENT:Close the result"
 msgstr "Fermer les résultats"
 
-#: tempCatalog.php:21
+#: tempCatalog.php:23
 msgid "ONEFAM:SEARCH_MANAGEMENT:Confirm suppress"
 msgstr "Confirmer la suppression"
 
@@ -96,9 +100,13 @@ msgstr "Créer une recherche"
 msgid "ONEFAM:SEARCH_MANAGEMENT:Handle search for"
 msgstr "Gérer les recherches et les rapports de"
 
+#: Actions/onefam_manage_search_util.php:49
+msgid "ONEFAM:SEARCH_MANAGEMENT:Is a shared research"
+msgstr "Est une recherche par défaut"
+
 #: tempCatalog.php:9 tempCatalog.php:10
 msgid "ONEFAM:SEARCH_MANAGEMENT:Key word"
-msgstr "Recherche"
+msgstr "Filtrer"
 
 #: tempCatalog.php:8
 msgid "ONEFAM:SEARCH_MANAGEMENT:List of search and report"
@@ -112,11 +120,19 @@ msgstr "Chargement"
 msgid "ONEFAM:SEARCH_MANAGEMENT:Modify"
 msgstr "Modifier"
 
+#: Actions/onefam_manage_search_util.php:52
+msgid "ONEFAM:SEARCH_MANAGEMENT:Presented in the filter list"
+msgstr "Présent dans la liste des filtres"
+
+#: tempCatalog.php:20
+msgid "ONEFAM:SEARCH_MANAGEMENT:Select as default search"
+msgstr "Sélectionné comme recherche par défaut"
+
 #: tempCatalog.php:18
 msgid "ONEFAM:SEARCH_MANAGEMENT:Share it"
 msgstr "Partager"
 
-#: tempCatalog.php:14
+#: tempCatalog.php:15
 msgid "ONEFAM:SEARCH_MANAGEMENT:Show the result"
 msgstr "Voir le résultat"
 
@@ -124,9 +140,13 @@ msgstr "Voir le résultat"
 msgid "ONEFAM:SEARCH_MANAGEMENT:Suppres it from filter"
 msgstr "Ne plus l'utiliser comme filtre"
 
-#: tempCatalog.php:15
+#: tempCatalog.php:14
 msgid "ONEFAM:SEARCH_MANAGEMENT:Suppress it"
 msgstr "Supprimer"
+
+#: tempCatalog.php:21
+msgid "ONEFAM:SEARCH_MANAGEMENT:Unselect as default search"
+msgstr "Ne plus sélectionner comme recherche par défaut"
 
 #: tempCatalog.php:19
 msgid "ONEFAM:SEARCH_MANAGEMENT:Unshare it"
@@ -136,7 +156,7 @@ msgstr "Enlever du partage"
 msgid "ONEFAM:SEARCH_MANAGEMENT:Use it as filter"
 msgstr "Utiliser comme filtre"
 
-#: tempCatalog.php:20
+#: tempCatalog.php:22
 msgid "ONEFAM:SEARCH_MANAGEMENT:Use it now"
 msgstr "Utiliser maintenant"
 
@@ -148,7 +168,7 @@ msgstr "Gestion par famille"
 msgid "Onefam"
 msgstr "Une famille"
 
-#: tempCatalog.php:30
+#: tempCatalog.php:32
 msgid "Starting of"
 msgstr "Démarrage de"
 
@@ -157,11 +177,11 @@ msgstr "Démarrage de"
 msgid "This action requires the installation of Dynacase Extui module"
 msgstr "Cette action nécessite l'installation du module Dynacase Extui"
 
-#: ONEFAM.app:121
+#: ONEFAM.app:126
 msgid "To choose other families"
 msgstr "Pour choisir d'autres familles"
 
-#: tempCatalog.php:28
+#: tempCatalog.php:30
 msgid "Validate"
 msgstr "Valider"
 
@@ -245,7 +265,7 @@ msgstr "interface extjs"
 msgid "one family generic root"
 msgstr "racine generic gestion par famille"
 
-#: tempCatalog.php:26
+#: tempCatalog.php:28
 msgid "open first family"
 msgstr " Ouverte en premier"
 
@@ -257,7 +277,7 @@ msgstr "Autres familles"
 msgid "redirect to generic"
 msgstr "rediriger vers generic"
 
-#: tempCatalog.php:24
+#: tempCatalog.php:26
 msgid "set as first family view"
 msgstr "enregistrer la famille comme la première à voir"
 
@@ -276,6 +296,12 @@ msgstr "familles administratives visibles"
 #: ONEFAM_init.php:24
 msgid "visible user families"
 msgstr "familles personnelles visibles"
+
+#~ msgid "ONEFAM:ONEFAM_MANAGE_SHARE"
+#~ msgstr "Gestion des recherches : gérer le partage"
+
+#~ msgid "ONEFAM:SEARCH_MANAGEMENT:Selected as default search"
+#~ msgstr "Sélectionné comme recherche par défaut"
 
 #~ msgid "ONEFAM:SEARCH_MANAGEMENT:Use It as filter"
 #~ msgstr "Utiliser comme filtre"

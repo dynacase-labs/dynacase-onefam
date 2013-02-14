@@ -18,11 +18,17 @@ function onefam_manage_search(Action &$action) {
     if ($famDoc->isAlive()) {
         $action->lay->set("FAM_TITLE", $famDoc->getTitle());
         $action->lay->set("FAM_ID", $famId);
+
+        $famReport = new_Doc("", 'REPORT');
+        $canCreateReport = $famReport->Control('icreate');
+        $action->lay->set('CANCREATE_REPORT', ("" == $canCreateReport));
+
+        $famReport = new_Doc("", 'DSEARCH');
+        $canCreateDSEARCH = $famReport->Control('icreate');
+        $action->lay->set('CANCREATE_DSEARCH', ("" == $canCreateDSEARCH));
     }else {
         throw new Exception(sprintf("The family %s is not valid", $famId));
     }
-
-
 
 
 }

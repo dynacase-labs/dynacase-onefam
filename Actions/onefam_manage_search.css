@@ -81,32 +81,40 @@ body {
 }
 
 .css-abstract {
-    position: relative;
+    width: 197px;
     min-height: 2em;
-    line-height: 2em;
-    padding-left: 2px;
-    padding-right: 42px;
+    line-height: 1.5em;
     border: 1px solid rgb(231, 231, 231);
     border-bottom: 1px solid white;
     cursor: pointer;
     word-wrap: break-word;
 }
 
+.css-abstract-symbol {
+    position: relative;
+    top: 1px;
+    float: left;
+    border: 0;
+}
+
+.css-abstractTextZone {
+    float: left;
+    width: 138px;
+}
+
 .css-abstractIconZone {
-    position: absolute;
+    float: right;
     height: 2em;
-    right: 20px;
 }
 
 .css-abstract-subElement {
-    position: absolute;
+    position: relative;
+    float: right;
+    top: 2px;
+    left: 1px;
     width: 16px;
-    bottom: 1px;
-    top: 0;
-    right: 0;
     border: 1px rgb(202, 202, 202) solid;
-    /* for ie6 don't remove it !*/
-    _height: 1.5em;
+    height: 1.5em;
 }
 
 .css-abstract-subElement:hover {

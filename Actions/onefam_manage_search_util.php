@@ -7,10 +7,11 @@ require_once 'FDL/Lib.Dir.php';
  *
  * @param $dbaccess
  * @param Doc $currentDocument
+ * @param null|int $defaultSearchId default search id
  * @param null|int $folderId id of the family folder
  * @return array
  */
-function getSearchAbstract($dbaccess, Doc $currentDocument, $folderId){
+function getSearchAbstract($dbaccess, Doc $currentDocument, $defaultSearchId, $folderId){
     $abstract =  array(
                 "title" => $currentDocument->getTitle(),
                 "id" => $currentDocument->getPropertyValue("id"),
@@ -18,10 +19,12 @@ function getSearchAbstract($dbaccess, Doc $currentDocument, $folderId){
                 "icon" => $currentDocument->getIcon(),
                 "url" => "?app=FDL&action=OPENDOC&mode=view&latest=Y&id=". $currentDocument->getPropertyValue("initid"),
                 "isAlive" => $currentDocument->isAlive(),
-                "isInFilter" => ($currentDocument->getRawValue("se_memo") === "yes")? "true" : "false",
-                "isEditable" => ($currentDocument->canEdit() === "") ? "true": "false",
-                "isDeleteable" => ($currentDocument->control("suppress") === "") ? "true": "false",
-                "isInFamilyDir" => $folderId ? isInDir($dbaccess, $folderId, $currentDocument->getPropertyValue("id")) ? "true" : "false" : "none"
+                "isInFilter" => ($currentDocument->getRawValue("se_memo") === "yes"),
+                "isEditable" => ($currentDocument->canEdit() === ""),
+                "isDeleteable" => ($currentDocument->control("suppress") === ""),
+                "isInFamilyDir" => $folderId ? isInDir($dbaccess, $folderId, $currentDocument->getPropertyValue("id")) ? true : false : "none",
+                "isReport" => $currentDocument instanceof _REPORT,
+                "isDefault" => $currentDocument->getPropertyValue("id") === $defaultSearchId
             );
     return array(
         "abstractData" => $abstract,
@@ -37,6 +40,20 @@ function getSearchAbstract($dbaccess, Doc $currentDocument, $folderId){
  */
 function generateSearchAbstractHTML(Array $abstractData) {
     $title = _("ONEFAM:SEARCH_MANAGEMENT:Click to see sub menu");
+    if ($abstractData["isDefault"]) {
+        $iconPart = '<span class="ui-icon ui-icon-circle-check "
+        title="'._("ONEFAM:SEARCH_MANAGEMENT:Selected as default search").'"></span>';
+    }
+    else if ($abstractData["isInFamilyDir"]) {
+        $iconPart = '<span class="ui-icon ui-icon-circle-zoomin" title="'
+            ._("ONEFAM:SEARCH_MANAGEMENT:Is a shared research").'"></span>';
+    } else if ($abstractData["isInFilter"]) {
+        $iconPart = '<span class="ui-icon ui-icon-circle-zoomin" title="'
+            ._("ONEFAM:SEARCH_MANAGEMENT:Presented in the filter list").'"></span>';
+    } else {
+        $iconPart = '<span class="ui-icon" style="visibility: hidden;"></span>';
+    }
+    $iconPart = '<div class="css-abstract-symbol '.($abstractData["isInFilter"] ? "ui-state-highlight" : "").'">'.$iconPart.'</div>';
 return <<<"TEMPLATE"
 <li class="css-abstract" data-url="{$abstractData["url"]}"
     data-id="{$abstractData["id"]}"
@@ -44,18 +61,22 @@ return <<<"TEMPLATE"
     data-is-editable="{$abstractData["isEditable"]}"
     data-is-deleteable="{$abstractData["isDeleteable"]}"
     data-is-in-family-dir="{$abstractData["isInFamilyDir"]}"
+    data-is-report="{$abstractData["isReport"]}"
+    data-is-default="{$abstractData["isDefault"]}"
     >
-    <div class="css-abstractIconZone">
-        <img class="css-abstractIcon" src='{$abstractData["icon"]}'/>
-    </div>
-    <span class="css-abstractTextZone">
+    $iconPart
+    <div class="css-abstractTextZone">
         <span class="css-abstractTitle">{$abstractData["title"]}</span>
-    </span>
+    </div>
     <div class="ui-state-highlight ui-corner-all css-abstract-subElement
     js-abstract-subElement css-abstract-subElement-hidden"
     title="$title">
         <span class="ui-icon ui-icon-triangle-1-e css-abstract-subElement-icon" ></span>
     </div>
+    <div class="css-abstractIconZone">
+        <img class="css-abstractIcon" src='{$abstractData["icon"]}'/>
+    </div>
+    <div class="ui-helper-clearfix"></div>
 </li>
 TEMPLATE;
 }

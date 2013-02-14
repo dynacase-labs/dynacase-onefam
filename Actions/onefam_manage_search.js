@@ -91,7 +91,7 @@
         //noinspection JSUnresolvedVariable
         handleAjaxRequest($.post("?app=ONEFAM&action=ONEFAM_MANAGE_SEARCH_GET_CONTENT",
             {
-                famId : window.DCP.manageSearch.famId,
+                famid : window.DCP.manageSearch.famId,
                 uuid :  generateID(),
                 keyWord : $("#search-zone-key").val()
             }),
@@ -154,27 +154,31 @@
             $subMenuFilter = $("#subMenuFilter"),
             $filterText = $("#filterText"),
             $unfilterText = $("#unfilterText"),
-            $contextualMenu = $("#searchListMenu"), timeoutid = $contextualMenu.data("timeoutid");
-        if (timeoutid) {
-            window.clearInterval(timeoutid);
+            $contextualMenu = $("#searchListMenu"),
+            $selectAsDefaultSearchEnable = $("#selectAsDefaultSearchEnable"),
+            $selectAsDefaultSearchDisable = $("#selectAsDefaultSearchDisable"),
+            timeOutId = $contextualMenu.data("timeoutid");
+        if (timeOutId) {
+            window.clearInterval(timeOutId);
         }
         rootPosition = $rootElement.offset();
         top = rootPosition.top - 2;
         left = rootPosition.left + $rootElement.outerWidth(true);
         $contextualMenu.data("id", $abstract.data("id"));
-        if ($abstract.data("is-in-filter") === true) {
+        $contextualMenu.data("is-report", $abstract.data("is-report"));
+        if ($abstract.data("is-in-filter")) {
             $unfilterText.show();
             $filterText.hide();
         } else {
             $filterText.show();
             $unfilterText.hide();
         }
-        if ($abstract.data("is-editable") === true) {
+        if ($abstract.data("is-editable")) {
             $subMenuModify.show();
         } else {
             $subMenuModify.hide();
         }
-        if ($abstract.data("is-deleteable") === true) {
+        if ($abstract.data("is-deleteable")) {
             $subMenuSuppress.show();
         } else {
             $subMenuSuppress.hide();
@@ -184,7 +188,7 @@
             $subMenuFilter.show();
         } else {
             $subMenuShare.show();
-            if ($abstract.data("is-in-family-dir") === true) {
+            if ($abstract.data("is-in-family-dir")) {
                 $shareText.hide();
                 $unshareText.show();
                 /* Hide it if is in family dir because it's useless to remove filter if in family dir*/
@@ -194,6 +198,13 @@
                 $unshareText.hide();
                 $subMenuFilter.show();
             }
+        }
+        if ($abstract.data("is-default")) {
+            $selectAsDefaultSearchEnable.hide();
+            $selectAsDefaultSearchDisable.show();
+        } else {
+            $selectAsDefaultSearchEnable.show();
+            $selectAsDefaultSearchDisable.hide();
         }
 
         $contextualMenu.css({ top : top, left : left}).removeClass("css-search-list-menu-hidden").data("timeoutid", "");
@@ -234,8 +245,12 @@
         $this.addClass("ui-state-focus");
         $this.find(".css-abstract-subElement").removeClass("css-abstract-subElement-hidden");
     }).on("mouseleave", ".css-abstract", function () {
-        var $this = $(this);
+        var $this = $(this), timeOutId;
         $this.removeClass("ui-state-focus");
+        timeOutId = window.setTimeout(function () {
+            hideSubMenu();
+        }, 100);
+        $("#searchListMenu").data("timeoutid", timeOutId);
         $this.find(".css-abstract-subElement").addClass("css-abstract-subElement-hidden");
     }).on("click", ".css-abstract", function () {
         var url = $(this).data("url");
@@ -381,11 +396,16 @@
      * Compute and set the next url and close the overlay
      */
     $("#subMenuUseIt").on("click", function () {
-        var id = $("#searchListMenu").data("id");
-        window.parent.onefam.manageSearch = {
-            nextURL : '?sole=Y&app=GENERIC&action=GENERIC_TAB&onefam=' + window.DCP.manageSearch.onefam +
-                        '&tab=0&clearkey=Y&famid=' + window.DCP.manageSearch.famId + '&catg=' + id + '&dirid=' + id
-        };
+        var $searchListMenu = $("#searchListMenu"), id = $searchListMenu.data("id"), isReport = $searchListMenu.data("is-report");
+        if (isReport) {
+            subwindow(400, 600, 'finfo' + window.DCP.manageSearch.famId,
+                '?sole=Y&&app=FDL&action=FDL_CARD&dochead=Y&latest=Y&id=' + id);
+        } else {
+            window.parent.onefam.manageSearch = {
+                nextURL : '?sole=Y&app=GENERIC&action=GENERIC_TAB&onefam=' + window.DCP.manageSearch.onefam +
+                            '&tab=0&clearkey=Y&famid=' + window.DCP.manageSearch.famId + '&catg=' + id + '&dirid=' + id
+            };
+        }
         window.location = "Images/1x1.gif";
     });
 
@@ -404,11 +424,33 @@
     });
 
     /**
+     * Handle the default search sub menu
+     */
+    $("#subMenuSelectAsDefaultSearch").on("click", function () {
+        var id = $("#searchListMenu").data("id");
+        handleAjaxRequest($.get("?app=ONEFAM&action=ONEFAM_MANAGE_SEARCH_TOGGLE_DEFAULT",
+            {
+                famid : window.DCP.manageSearch.famId,
+                searchId : id
+            }),
+            function () {
+                updateSearchList();
+                saveTheNextUrl("reload");
+            },
+            logError);
+        hideSubMenu();
+    });
+
+    /**
      * Handle the share it submenu
      */
     $("#subMenuShare").on("click", function () {
         var id = $("#searchListMenu").data("id");
-        handleAjaxRequest($.get("?app=ONEFAM&action=ONEFAM_MANAGE_SHARE", {searchId : id, famId : window.DCP.manageSearch.famId}),
+        handleAjaxRequest($.get("?app=ONEFAM&action=ONEFAM_MANAGE_SEARCH_TOGGLE_SHARE",
+            {
+                searchId : id,
+                famId : window.DCP.manageSearch.famId
+            }),
             function () {
                 updateSearchList();
                 saveTheNextUrl("reload");
