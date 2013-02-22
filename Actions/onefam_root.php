@@ -26,7 +26,7 @@ function onefam_root(Action & $action)
         $action->lay = new Layout(getLayoutFile("ONEFAM", "onefam_ext.xml") , $action);
         onefam_ext($action);
     } else {
-        $action->lay->set("ONEFAM_JS", $action->parent->getJsLink("ONEFAM:onefam_root.js", true));
+        $action->lay->set("ONEFAM_JS", $action->parent->getJsLink("ONEFAM:onefam_root.js"));
         $action->lay->set("APP_TITLE", _($action->parent->description));
 
         $nbcol = intval($action->getParam("ONEFAM_LWIDTH", 1));

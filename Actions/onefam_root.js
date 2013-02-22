@@ -9,7 +9,6 @@
         $height = $(window).height() * 0.8,
         $tdiframe = $("#tdiframe"),
         $ifonefam = $(".ifonefam");
-        console.log("resize");
         if (window.onefam.iframeOverlay) {
             window.onefam.iframeOverlay.dialog("option", {
                 width : $width,
@@ -82,7 +81,9 @@
                         callback("reload");
                     }
                 }
-                $this.remove();
+                window.setTimeout(function() {
+                    $this.remove();
+                }, 0);
                 window.onefam.iframeOverlay = null;
             }
         });
@@ -93,11 +94,9 @@
 var selimg = null;
 
 function imgborder() {
-    var i;
-    for (i = 0; i < document.images.length; i += 1) {
-        document.images[i].style.borderStyle = 'inset';
-    }
+    $(document.images).css("borderStyle", 'inset');
 }
+
 function ctrlPushed(event) {
     if (!event) {
         event = window.event;
@@ -146,25 +145,25 @@ function openiframe(event, th, docid) {
         $tdiframe.append(iframeHTML);
     }
 }
-function reloadiframe(event, th, docid) {
-    var idf = 'if_' + docid;
-    var nf;
 
-    nf = document.getElementById(idf);
-    if (nf) {
-        nf.style.display = '';
-        nf.src = '[CORE_STANDURL]&app=' + window.onefamParam.appName + '&action=ONEFAM_GENROOT&famid=' + docid;
-    }
+function reloadiframe(event, th, docid) {
+    var $currentIframe = $("#"+'if_' + docid);
+
+    $currentIframe.show().attr('src',
+        window.onefamParam.coreStandUrl+
+        '&app='+window.onefamParam.appName+
+        '&action=ONEFAM_GENROOT&famid=' + docid
+        );
 }
 
 function openfirst(docid) {
-    var i = document.getElementById('imgu' + docid);
+    var $image = $('#imgu' + docid);
 
-    if (!i) {
-        i = document.getElementById('imgm' + docid);
+    if ($image.length <= 0) {
+        $image = $('#imgm' + docid);
     }
-    if (i) {
-        i.onclick.apply(i, []);
+    if ($image.length > 0) {
+        $image.trigger("click");
     } else {
         openiframe(null, null, docid);
     }
