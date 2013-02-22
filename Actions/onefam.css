@@ -1,10 +1,5 @@
-.onefam {
-[IF ISIE] overflow-y : hidden;
-[ENDIF ISIE]
-}
-
 .onefamico {
-    border: 2px solid transparent;
+    margin: 2px;
     cursor: pointer;
 }
 
@@ -13,12 +8,41 @@
     background-color: [COLOR_C3];
 }
 
-.onefamico[selected="1"] {
+.onefamico_selected {
+    margin: 0;
     border: 2px solid [COLOR_B0];
     background-color: [COLOR_B3];
     background: -webkit-gradient(linear, 0% 0, 0% 100%, from([COLOR_B9]), to([COLOR_B1]));
     background: -moz-linear-gradient(270deg, [COLOR_B9], [COLOR_B1]);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '[COLOR_B9]', endColorstr = '[COLOR_B1]'); /* for IE */
-    cursor: pointer;
+}
+
+.ifonefam {
+    border:none;
+    padding : 0;
+    margin : 0;
+}
+.iframecell {
+    position : absolute;
+    top : 0;
+    left : 42px;
+    right : 0;
+    padding:0;
+    margin:0;
+    [IF ISIE]vertical-align:top;[ENDIF ISIE]
+}
+.iconList {
+    border:none;
+    overflow:auto;
+}
+.onefam {
+    position : relative;
+    [IF oneBgColor]
+    background-color:[ONEFAM_BGCOLOR];
+    background: linear-gradient(270deg, [ONEFAM_BGCOLOR], [CORE_BGCOLOR]);
+    background: -moz-linear-gradient(270deg, [ONEFAM_BGCOLOR], [CORE_BGCOLOR]);
+    background: -webkit-gradient(linear, 0% 0, 0% 100%, from([ONEFAM_BGCOLOR]), to([CORE_BGCOLOR]) );
+    /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='[ONEFAM_BGCOLOR]', endColorstr='[CORE_BGCOLOR]'); */
+    [ENDIF oneBgColor]
 }
 

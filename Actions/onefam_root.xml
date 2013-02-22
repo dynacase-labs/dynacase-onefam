@@ -10,38 +10,6 @@
     [CSS:REF]
     <style type="text/css">
     [CSS:CODE]
-    .ifonefam {
-      width:100%;
-      height:99%; /* else parasite scroll in FF/IE but not in chrome */
-      border:none;
-    }
-    .iframecell {
-      position : absolute;
-      top : 0;
-      left : 42px;
-      right : 0;
-      [IFNOT ISIE]height:100%;[ENDIF ISIE]
-      [IF ISIE]height:100%;[ENDIF ISIE]
-      padding:0px;
-      margin:0px;
-     [IF ISIE] vertical-align:top;[ENDIF ISIE]
-    }
-    .iconList {
-           border:none;
-           overflow:auto;
-           }
-    .onefam {
-     width:100%;
-     height:100%;
-     position : relative;
-     [IF oneBgColor]
-      background-color:[ONEFAM_BGCOLOR];
-      background: linear-gradient(270deg, [ONEFAM_BGCOLOR], [CORE_BGCOLOR]);
-      background: -moz-linear-gradient(270deg, [ONEFAM_BGCOLOR], [CORE_BGCOLOR]);
-      background: -webkit-gradient(linear, 0% 0, 0% 100%, from([ONEFAM_BGCOLOR]), to([CORE_BGCOLOR]) );
-      /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='[ONEFAM_BGCOLOR]', endColorstr='[CORE_BGCOLOR]'); */
-     [ENDIF oneBgColor]
-    }
     </style>
  </head>
 
@@ -93,7 +61,8 @@
           appName : "[APPNAME]",
           [IF OPENFAM]openfam : "[openfam]",[ENDIF OPENFAM]
           izpx : "[izpx]",
-          colNumber : "[colNumber]"
+          colNumber : "[colNumber]",
+          coreStandUrl : "[CORE_STANDURL]"
       };
     </script>
     <script src="[ONEFAM_JS]"></script>
