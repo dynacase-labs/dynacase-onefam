@@ -115,11 +115,13 @@ function openiframe(event, th, docid) {
         target,
         iframeHTML;
 
+    //Add class on the selected element and attr
     if (selimg !== null) {
-        selimg.setAttribute("selected", 0);
+        $(selimg).removeClass("onefamico_selected")
+          .attr("selected", 0);
     }
     if (th) {
-        th.setAttribute("selected", 1);
+        $(th).addClass("onefamico_selected").attr("selected", 1);
         selimg = th;
     }
 
