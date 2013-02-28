@@ -89,7 +89,8 @@
         $("#search-list-content").hide();
         $("#search-list-loading").show();
         //noinspection JSUnresolvedVariable
-        handleAjaxRequest($.post("?app=ONEFAM&action=ONEFAM_MANAGE_SEARCH_GET_CONTENT",
+        var app = getHttpVars(document.location, 'app', 'ONEFAM');
+        handleAjaxRequest($.post("?app=" + app + "&action=ONEFAM_MANAGE_SEARCH_GET_CONTENT",
             {
                 famid : window.DCP.manageSearch.famId,
                 uuid :  generateID(),
@@ -232,6 +233,23 @@
             window.parent.onefam.manageSearch = {nextURL : url};
         }
     };
+
+    getHttpVars = function getHttpVars(url, varName, defaultValue) {
+        var a = document.createElement('a');
+        a.href = url;
+        var qStr = a.search;
+        if (qStr.substring(0, 1) == '?') {
+            qStr = qStr.substring(1);
+            var elmts = qStr.split('&');
+            for (var i = 0; i < elmts.length; i++) {
+                var elmt = elmts[i].split('=', 2);
+                if (elmt[0] == varName) {
+                    return (elmt.length > 1) ? elmt[1] : defaultValue;
+                }
+            }
+        }
+        return defaultValue;
+    }
 
     /**
      * Handle on the search list
