@@ -1,7 +1,7 @@
 (function ($, window) {
     var handleAjaxRequest, logError, generateID, updateSearchList, generateHTMLAbstractList, sizeIframe, debounce,
         noListReload, displaySubMenu, hideSubMenu, saveTheNextUrl,
-        autoHideSubMenuTime = 1000,
+        autoHideSubMenuTime = 1000, isIE6,
         iframeMode = "only_edition";
 
     /**
@@ -489,10 +489,14 @@
             $displayZone = $("#display-zone"),
             windowHeight = $(window).height(),
             windowWidth = $(window).width();
-        $("#main-zone").height(windowHeight);
+        if (isIE6) {
+            $("#main-zone").height(windowHeight);
+        }
         $searchList.height(windowHeight - $searchList.position().top);
-        $displayZone.height(windowHeight);
-        $displayZone.width(windowWidth - $displayZone.position().left);
+        if (isIE6) {
+            $displayZone.height(windowHeight);
+            $displayZone.width(windowWidth - $displayZone.position().left);
+        }
         sizeIframe();
     }, 500));
 
@@ -501,6 +505,7 @@
      */
     $(document).ready(function () {
         updateSearchList();
+        isIE6 = $("html").data("browser") === "ie6";
         $(window).trigger("resize");
     });
 }($, window));

@@ -8,12 +8,14 @@ html,
 body {
     padding: 0;
     margin: 0;
+    height: 100%;
     font-family: Helvetica, Arial, sans-serif;
     font-size: 12px;
 }
 
 .css-main-zone {
     position: relative;
+    height: 100%;
     width: 100%;
 }
 
@@ -162,6 +164,7 @@ body {
     top: 0;
     left: 200px;
     right: 0;
+    bottom: 0;
 }
 
 .css-iframe-content {
