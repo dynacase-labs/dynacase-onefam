@@ -8,6 +8,14 @@
     background-color: [COLOR_C3];
 }
 
+.onefameico_open {
+    border-left: 2px solid [COLOR_B1];
+}
+
+.onefameico_open:hover {
+    border-color: [COLOR_C0] [COLOR_C0] [COLOR_C0] [COLOR_B1];
+}
+
 .onefamico_selected {
     margin: 0;
     border: 2px solid [COLOR_B0];

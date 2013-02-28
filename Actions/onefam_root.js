@@ -112,7 +112,8 @@ function openiframe(event, th, docid) {
         isrc,
         $tdiframe,
         target,
-        iframeHTML;
+        iframeHTML,
+        needToReload = false;
 
     //Add class on the selected element and attr
     if (selimg !== null) {
@@ -120,21 +121,20 @@ function openiframe(event, th, docid) {
           .attr("selected", 0);
     }
     if (th) {
-        $(th).addClass("onefamico_selected").attr("selected", 1);
+        $(th).addClass("onefamico_selected onefameico_open").attr("selected", 1);
         selimg = th;
     }
 
-    $("iframe").hide();
     $nf = $("#"+idf);
-    if ($nf.length > 0 && ($nf.css("display") != 'none')) {
-        if (window.frames[idf]) {
+    $(".ifonefam[id!=\""+idf+"\"]").hide();
+    if ($nf.length > 0) {
+        if (window.frames[idf] && $nf.css("display") != 'none') {
             lif = window.frames[idf].document.getElementsByTagName('frame');
             if (lif.length > 0) {
                 isrc = lif[0].src;
                 window.frames[idf].flist.location.href = isrc;
             }
         }
-        $nf.show();
     } else {
         $tdiframe = $("#tdiframe");
         target = window.onefamParam.coreStandUrl+'&app=' + window.onefamParam.appName + '&action=ONEFAM_GENROOT&famid=' + docid;
@@ -144,6 +144,7 @@ function openiframe(event, th, docid) {
             ' src="' + target + '" />';
         $tdiframe.append(iframeHTML);
     }
+    $nf.show();
 }
 
 function reloadiframe(event, th, docid) {
