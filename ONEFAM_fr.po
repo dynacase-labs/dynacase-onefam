@@ -42,7 +42,7 @@ msgstr "Éditer %s"
 #: Actions/onefam_togen.php:41
 #, c-format
 msgid "Family (#%d) is not referenced"
-msgstr "la famille (#%d) n'est pas référencée"
+msgstr "La famille (#%d) n'est pas référencée"
 
 #: Actions/onefam_togen.php:30
 msgid "Family is not instanciate"
@@ -74,7 +74,7 @@ msgstr "Gestion des recherches : modifier l'état filtre"
 
 #: ONEFAM.app:107
 msgid "ONEFAM:ONEFAM_MANAGE_SEARCH_TOGGLE_SHARE"
-msgstr ""
+msgstr "ONEFAM:ONEFAM_MANAGE_SEARCH_TOGGLE_SHARE"
 
 #: ONEFAM.app:96
 msgid "ONEFAM:SEARCH_MANAGEMENT"
@@ -207,19 +207,19 @@ msgstr "mode d'affichage"
 
 #: ONEFAM.app:80
 msgid "edit master preferences"
-msgstr "editer les préférences administratives"
+msgstr "Éditer les préférences administratives"
 
 #: ONEFAM.app:65
 msgid "edit preferences"
-msgstr "editer les préférences"
+msgstr "Éditer les préférences"
 
 #: ONEFAM.app:50
 msgid "familly list"
-msgstr "liste des familles"
+msgstr "Liste des familles"
 
 #: ONEFAM.app:60
 msgid "familly result"
-msgstr "résultat des familles"
+msgstr "Résultat des familles"
 
 #: ONEFAM.app:75
 msgid "get data for createtree family"
@@ -247,7 +247,7 @@ msgstr "nombre de colonne d'icones"
 
 #: tempCatalog.php:1 tempCatalog.php:3
 msgid "master choose families"
-msgstr "choix des familles administratives"
+msgstr "Choix des familles administratives"
 
 #: ONEFAM.app:88 ONEFAM_EXT/programs/initOnefamExt.php:27
 msgid "modify master preferences"

@@ -16,8 +16,8 @@ function onefam_manage_search(Action &$action) {
     $famDoc = new_Doc('', $famId);
 
     if ($famDoc->isAlive()) {
-        $action->lay->set("FAM_TITLE", $famDoc->getTitle());
-        $action->lay->set("FAM_ID", $famId);
+        $action->lay->set("FAM_TITLE", str_replace('"', '\"',$famDoc->getTitle()));
+        $action->lay->set("FAM_ID", str_replace('"', '\"',$famId));
 
         $famReport = new_Doc("", 'REPORT');
         $canCreateReport = $famReport->Control('icreate');

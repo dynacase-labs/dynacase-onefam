@@ -8,6 +8,14 @@
     background-color: [COLOR_C3];
 }
 
+.onefameico_open {
+    border-left: 2px solid [COLOR_B1];
+}
+
+.onefameico_open:hover {
+    border-color: [COLOR_C0] [COLOR_C0] [COLOR_C0] [COLOR_B1];
+}
+
 .onefamico_selected {
     margin: 0;
     border: 2px solid [COLOR_B0];
@@ -34,7 +42,9 @@
 .iconList {
     border:none;
     overflow:auto;
+    text-align: center;
 }
+
 .onefam {
     position : relative;
     [IF oneBgColor]
@@ -44,5 +54,9 @@
     background: -webkit-gradient(linear, 0% 0, 0% 100%, from([ONEFAM_BGCOLOR]), to([CORE_BGCOLOR]) );
     /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='[ONEFAM_BGCOLOR]', endColorstr='[CORE_BGCOLOR]'); */
     [ENDIF oneBgColor]
+}
+
+.css-add-button-icon {
+    width: 75%;
 }
 
