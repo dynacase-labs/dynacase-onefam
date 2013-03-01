@@ -68,6 +68,9 @@
         data = $("#mainForm").serializeArray();
       if (window !== window.top) {
         $.post($mainForm.attr("action"), data, function() {
+          if (window.parent && window.parent.onefam) {
+            window.parent.onefam.oneFamEditPref = "needToReload";
+          }
           window.location.href = "Images/1x1.gif";
         });
         return false;
