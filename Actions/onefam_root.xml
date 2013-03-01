@@ -30,7 +30,7 @@
                class="js-family-button"
                title="[TEXT:master choose families]"
                href="#"
-               onclick="window.openIframeOverlay('[CORE_STANDURL]&amp;app=[APPNAME]&amp;action=ONEFAM_EDITMASTERPREF', reloadMe); return false;">
+               onclick="window.openIframeOverlay('[CORE_STANDURL]&amp;app=[APPNAME]&amp;action=ONEFAM_EDITMASTERPREF', setPrefTryToReloadMe); return false;">
                +
         </a>
         [ENDBLOCK CHOOSEMASTERFAMILIES]
@@ -51,7 +51,7 @@
                class="js-family-button"
                title="[TEXT:choose user families]"
                href="#"
-               onclick="window.openIframeOverlay('[CORE_STANDURL]&amp;app=[APPNAME]&amp;action=ONEFAM_EDITPREF', reloadMe); return false;">
+               onclick="window.openIframeOverlay('[CORE_STANDURL]&amp;app=[APPNAME]&amp;action=ONEFAM_EDITPREF', setPrefTryToReloadMe); return false;">
                +
         </a>
         [ENDBLOCK CHOOSEUSERFAMILIES]
@@ -70,7 +70,8 @@
           [IF OPENFAM]openfam : "[openfam]",[ENDIF OPENFAM]
           izpx : "[izpx]",
           colNumber : "[colNumber]",
-          coreStandUrl : "[CORE_STANDURL]"
+          coreStandUrl : "[CORE_STANDURL]",
+          needToReload : "[TEXT:ONEFAM:Your preferences has been modified. Would you reload ?]"
       };
     </script>
     <script src="[ONEFAM_JS]"></script>

@@ -188,8 +188,12 @@ function resizeIconList(colNumber) {
     }
 }
 
-function reloadMe() {
-    window.location.href=window.location.href;
+function setPrefTryToReloadMe() {
+    if (window.onefam.oneFamEditPref && window.onefam.oneFamEditPref === "needToReload") {
+        if (confirm(window.onefamParam.needToReload)) {
+            window.location.href=window.location.href;
+        }
+    }
 }
 
 $(document).ready(function onReady() {

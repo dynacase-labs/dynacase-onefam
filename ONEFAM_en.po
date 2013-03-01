@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ZOO\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-14 16:24+0100\n"
+"POT-Creation-Date: 2013-03-01 18:08+0100\n"
 "PO-Revision-Date: 2013-01-15 11:24+0100\n"
 "Last-Translator: John Doe <john.doe@somewhere.org>\n"
 "Language-Team: English <distrib@somewhere.org>\n"
@@ -162,6 +162,10 @@ msgstr "Use it as filter"
 #: tempCatalog.php:23
 msgid "ONEFAM:SEARCH_MANAGEMENT:Use it now"
 msgstr "Use it now"
+
+#: tempCatalog.php:6
+msgid "ONEFAM:Your preferences has been modified. Would you reload ?"
+msgstr "Your preferences has been modified. Would you reload ?"
 
 #: ONEFAM.app:27
 msgid "One Familly Management"
