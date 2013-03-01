@@ -188,12 +188,22 @@ function resizeIconList(colNumber) {
     }
 }
 
+function reloadMe() {
+    window.location.href=window.location.href;
+}
+
 $(document).ready(function onReady() {
     $('#loading').hide();
     $('#iconList').show();
     if (window.onefamParam.openfam) {
         openfirst(window.onefamParam.openfam);
     }
+    $(".js-family-button").button({
+        icons : {
+            primary : "ui-icon-plusthick"
+        },
+        text :  false
+    });
     window.onefam.resize();
 });
 

@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>[APP_TITLE]</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=100" /> <!-- IE latest mode -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" /> <!-- IE latest mode -->
     <link rel="icon" href="[DYNACASE_FAVICO]"/>
     <link rel="shortcut icon" href="[DYNACASE_FAVICO]"/>
     <link rel="stylesheet" type="text/css" href="[CORE_SSTANDURL]app=FDL&amp;action=ALLVIEWCSS&amp;wv=[WVERSION]" />
@@ -26,9 +26,13 @@
         [ENDBLOCK SELECTMASTER]
 
         [BLOCK CHOOSEMASTERFAMILIES]
-        <button style="width:[izpx]px"
+        <a style="width:[izpx]px"
+               class="js-family-button"
                title="[TEXT:master choose families]"
-               onclick="subwindow(250,350,'onepref','[CORE_STANDURL]&amp;app=[APPNAME]&amp;action=ONEFAM_EDITMASTERPREF')">+</button>
+               href="#"
+               onclick="window.openIframeOverlay('[CORE_STANDURL]&amp;app=[APPNAME]&amp;action=ONEFAM_EDITMASTERPREF', reloadMe); return false;">
+               +
+        </a>
         [ENDBLOCK CHOOSEMASTERFAMILIES]
         [BLOCK SEPARATOR]
         <hr  width="90%"/>
@@ -43,9 +47,13 @@
              title="[ftitle]"/>
         [ENDBLOCK SELECTUSER]
         [BLOCK CHOOSEUSERFAMILIES]
-        <button style="width:[izpx]px"
+        <a style="width:[izpx]px"
+               class="js-family-button"
                title="[TEXT:choose user families]"
-               onclick="subwindow(250,350,'onepref','[CORE_STANDURL]&amp;app=[APPNAME]&amp;action=ONEFAM_EDITPREF')">+</button>
+               href="#"
+               onclick="window.openIframeOverlay('[CORE_STANDURL]&amp;app=[APPNAME]&amp;action=ONEFAM_EDITPREF', reloadMe); return false;">
+               +
+        </a>
         [ENDBLOCK CHOOSEUSERFAMILIES]
     </div>
     <div class="iframecell" id="tdiframe">

@@ -1,0 +1,54 @@
+.css-fam-zone {
+    padding-top: 2em;
+}
+
+.css-fam-element {
+    float:left;
+    overflow:hidden;
+    width:15em;
+    height:3em;
+}
+
+.css-fam-icon {
+    width: 20px;
+    vertical-align: middle;
+}
+
+.css-fam-selected {
+    cursor : pointer;
+}
+
+.css-buttons-zone {
+    width: 90%;
+    float: left;
+}
+
+.css-openfirst {
+    display:inline;
+}
+
+.css-header {
+    width:90%;
+}
+
+.css-remove-first, .css-openfirst {
+    float: left;
+}
+
+input.css-button-validate {
+    float: right;
+    margin: 0.5em;
+}
+
+.ui-helper-clearfix:before, .ui-helper-clearfix:after {
+    content: "";
+    display: table;
+}
+
+.ui-helper-clearfix:after {
+    clear: both;
+}
+
+.ui-helper-clearfix {
+    zoom: 1;
+}

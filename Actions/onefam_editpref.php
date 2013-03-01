@@ -21,23 +21,25 @@ include_once "FDL/Lib.Dir.php";
 function onefam_editpref(Action &$action, $idsattr = "ONEFAM_IDS", $modaction = "ONEFAM_MODPREF")
 {
     $dbaccess = $action->GetParam("FREEDOM_DB");
-    
+
     $action->parent->AddJsRef($action->GetParam("CORE_JSURL") . "/geometry.js");
     $action->parent->AddJsRef($action->GetParam("CORE_JSURL") . "/resizeimg.js");
     $action->parent->AddJsRef($action->GetParam("CORE_PUBURL") . "/FDL/Layout/common.js");
-    
+    $action->parent->AddJsRef("ONEFAM:onefam_editpref.js");
+    $action->parent->AddCssRef("ONEFAM:onefam_editpref.css");
+
     $tcdoc = GetClassesDoc($dbaccess, $action->user->id, 0, "TABLE");
-    
+
     $idsfam = $action->GetParam($idsattr);
     $tidsfam = explode(",", $idsfam);
     foreach ($tidsfam as $k => $v) {
         if (!is_numeric($v)) $tidsfam[$k] = getFamIdFromName($dbaccess, $v);
     }
-    
+
     $openfam = $action->getParam("ONEFAM_FAMOPEN");
     $action->lay->set("openfirst", $openfam);
     $doc = new_Doc($dbaccess);
-    
+
     $selectclass = array();
     if (is_array($tcdoc)) {
         while (list($k, $pdoc) = each($tcdoc)) {
@@ -49,7 +51,7 @@ function onefam_editpref(Action &$action, $idsattr = "ONEFAM_IDS", $modaction = 
             }
         }
     }
-    
+
     $action->lay->SetBlockData("SELECTPREF", $selectclass);
     $action->lay->Set("modaction", $modaction);
 }
