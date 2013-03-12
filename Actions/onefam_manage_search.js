@@ -1,6 +1,6 @@
 (function ($, window) {
     var handleAjaxRequest, logError, generateID, updateSearchList, generateHTMLAbstractList, sizeIframe, debounce,
-        noListReload, displaySubMenu, hideSubMenu, saveTheNextUrl,
+        noListReload, displaySubMenu, hideSubMenu, saveTheNextUrl, hideDisplayIframe,
         autoHideSubMenuTime = 1000, isIE6,
         iframeMode = "only_edition";
 
@@ -224,6 +224,14 @@
     };
 
     /**
+     * hide search-display-iframe by setting its location to Images/1x1.gif
+     */
+    hideDisplayIframe = function hideDisplayIframe(){
+        var $iframe = $('#search-display-iframe');
+        $iframe.attr('src', 'Images/1x1.gif');
+    };
+
+    /**
      * Save the next url in onefam (see onefam_root.js openIframe)
      * @param url
      */
@@ -304,58 +312,61 @@
      * Handle the close display button
      */
     $("#close-search-display").on("click", function () {
-        iframeMode = "only_edition";
+        hideDisplayIframe();
+    });
+
+    /**
+     * change layout (display #search-display-iframe or not) on
+     * #search-display-iframe load
+     */
+    $("#search-display-iframe").on("load", function () {
+        var doc;
+        doc = this.contentDocument || this.contentWindow.document;
+        if (doc && doc.location && doc.location.href &&
+                doc.location.href.toLowerCase().indexOf("images/1x1.gif") === -1) {
+            iframeMode = "two_mode";
+        } else {
+            iframeMode = "only_edition";
+        }
         sizeIframe();
     });
 
     /**
-     * Reload the list on the change of the search display iframe
+     * when reloading search-edition-iframe
+     * - Reload the searches list
+     * - hide #search-display-iframe
      */
-    $("#search-display-iframe").on("load", function () {
-        var doc;
+    $("#search-edition-iframe").on("load", function () {
         if (noListReload) {
             noListReload = false;
         } else {
             updateSearchList();
         }
-        doc = this.contentDocument || this.contentWindow.document;
-        if (doc && doc.location && doc.location.href &&
-                doc.location.href.toLowerCase().indexOf("images/1x1.gif") === -1) {
-            iframeMode = "two_mode";
-            sizeIframe();
-        }
+        hideDisplayIframe();
     });
 
     /**
      * Handle the creation search button
      */
     $("#creation-search").on("click", function () {
+        noListReload = true;
         hideSubMenu();
         iframeMode = "only_edition";
         sizeIframe();
         //noinspection JSUnresolvedVariable
-        $("#search-edition-iframe").attr("src", "?app=GENERIC&action=GENERIC_EDIT&se_memo=yes&classid=DSEARCH&onlysubfam=" + window.DCP.manageSearch.famId + "&sfamid=" + window.DCP.manageSearch.famId)
-            .one("load", function () {
-                $(this).one("load", function () {
-                    updateSearchList();
-                });
-            });
+        $("#search-edition-iframe").attr("src", "?app=GENERIC&action=GENERIC_EDIT&se_memo=yes&classid=DSEARCH&onlysubfam=" + window.DCP.manageSearch.famId + "&sfamid=" + window.DCP.manageSearch.famId);
     });
 
     /**
      * Handle the creation report button
      */
     $("#creation-report").on("click", function () {
+        noListReload = true;
         hideSubMenu();
         iframeMode = "only_edition";
         sizeIframe();
         //noinspection JSUnresolvedVariable
-        $("#search-edition-iframe").attr("src", "?app=GENERIC&action=GENERIC_EDIT&se_memo=yes&classid=REPORT&onlysubfam=" + window.DCP.manageSearch.famId + "&sfamid=" + window.DCP.manageSearch.famId)
-            .one("load", function () {
-                $(this).one("load", function () {
-                    updateSearchList();
-                });
-            });
+        $("#search-edition-iframe").attr("src", "?app=GENERIC&action=GENERIC_EDIT&se_memo=yes&classid=REPORT&onlysubfam=" + window.DCP.manageSearch.famId + "&sfamid=" + window.DCP.manageSearch.famId);
     });
 
     /**
