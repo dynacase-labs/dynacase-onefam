@@ -71,7 +71,8 @@
           izpx : "[izpx]",
           colNumber : "[colNumber]",
           coreStandUrl : "[CORE_STANDURL]",
-          needToReload : "[TEXT:ONEFAM:Your preferences has been modified. Would you reload ?]"
+          needToReload : "[TEXT:ONEFAM:Your preferences has been modified. Would you reload ?]",
+          resizeIframeOverlay : [IF ISIE8]false[ENDIF ISIE8][IFNOT ISIE8]true[ENDIF ISIE8]
       };
     </script>
     <script src="[ONEFAM_JS]"></script>
