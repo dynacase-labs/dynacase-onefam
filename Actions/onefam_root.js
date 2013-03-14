@@ -9,7 +9,7 @@
         $height = $(window).height() * 0.8,
         $tdiframe = $("#tdiframe"),
         $ifonefam = $(".ifonefam");
-        if (window.onefam.iframeOverlay) {
+        if (window.onefam.iframeOverlay && window.onefamParam.resizeIframeOverlay) {
             window.onefam.iframeOverlay.dialog("option", {
                 width : $width,
                 height : $height
