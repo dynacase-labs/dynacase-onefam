@@ -61,6 +61,14 @@
     <div id="loading">
         [TEXT:ONEFAM:Loading]...
     </div>
+    <div id="aide" style="display:none">
+        <div class="hblock">
+            <h1>[TEXT:ONEFAM:help (title)]</h1>
+            [TEXT:ONEFAM:help (intro)]
+            [TEXT:FGSEARCH:help for input]
+            [TEXT:ONEFAM:help specific]
+        </div>
+    </div>
     <script src="lib/jquery/jquery.js?wv=[WVERSION]"></script>
     <script src="lib/jquery-ui/js/jquery-ui.js?wv=[WVERSION]"></script>
     [JS:REF]
