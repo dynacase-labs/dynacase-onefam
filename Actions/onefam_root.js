@@ -1,3 +1,24 @@
+
+function displayOverlay (element, me) {
+    var width = $(window).width() * 0.8;
+    var height = $(window).height() * 0.8;
+    var title = $(me).attr("title");
+    $(document.getElementById(element).outerHTML).dialog({
+        modal:true,
+        resizable: false,
+        draggable:false,
+        width: width,
+        height: height,
+        closeText: "[TEXT:FGSEARCH:close search online help]",
+        position:"center",
+        title: title,
+        close: function() {
+            $(this).dialog("destroy");
+            $(this).remove();
+        }
+    }).width(width).height(height);
+}
+
 (function () {
 
     window.onefam = window.onefam || {};
