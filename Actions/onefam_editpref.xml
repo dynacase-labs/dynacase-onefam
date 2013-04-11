@@ -3,8 +3,7 @@
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
   <title>[TEXT:Choose visibles families]</title>
-  <link rel="stylesheet" type="text/css" href="?app=FDL&amp;action=ALLVIEWCSS&amp;wv=[WVERSION]" />
-  [CSS:REF]
+  [CSS:CUSTOMREF]
   <style type="text/css">[CSS:CODE]</style>
   <script>
     window.onefamPref = {};

@@ -5,9 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" /> <!-- IE latest mode -->
     <link rel="icon" href="[DYNACASE_FAVICO]"/>
     <link rel="shortcut icon" href="[DYNACASE_FAVICO]"/>
-    <link rel="stylesheet" type="text/css" href="[CORE_SSTANDURL]app=FDL&amp;action=ALLVIEWCSS&amp;wv=[WVERSION]" />
-    <link href="lib/jquery-ui/css/smoothness/jquery-ui.css?wv=[WVERSION]" rel="stylesheet" type="text/css"/>
-    [CSS:REF]
+    [CSS:CUSTOMREF]
     <style type="text/css">
     [CSS:CODE]
     </style>
