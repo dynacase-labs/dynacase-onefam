@@ -5,7 +5,7 @@
     <description>Interface to manage documents sorted by family</description>
 
     <requires>
-        <module name="dynacase-core" version="3.2.5" comp="ge" />
+        <module name="dynacase-core" version="3.2.6" comp="ge" />
         <module name="dynacase-datajs" version="3.2.5" comp="ge"/>
     </requires>
 
