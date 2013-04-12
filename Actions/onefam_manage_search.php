@@ -3,9 +3,10 @@
  * @author Anakeen
  * @license http://www.fsf.org/licensing/licenses/agpl-3.0.html GNU Affero General Public License
  * @package FDL
- */
+*/
 
 require_once 'FDL/freedom_util.php';
+require_once 'GENERIC/generic_util.php';
 /**
  * Compute the manage search interface
  *
@@ -26,7 +27,7 @@ function onefam_manage_search(Action & $action)
     if ($famDoc->isAlive()) {
         $action->lay->set("FAM_TITLE", str_replace('"', '\"', $famDoc->getTitle()));
         $action->lay->set("FAM_ID", str_replace('"', '\"', $famId));
-        
+        $action->lay->set("alsosub", getInherit($action, $famId));
         $famReport = new_Doc("", 'REPORT');
         $canCreateReport = $famReport->Control('icreate');
         $action->lay->set('CANCREATE_REPORT', ("" == $canCreateReport));
