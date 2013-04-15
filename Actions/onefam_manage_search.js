@@ -354,7 +354,7 @@
         iframeMode = "only_edition";
         sizeIframe();
         //noinspection JSUnresolvedVariable
-        $("#search-edition-iframe").attr("src", "?app=GENERIC&action=GENERIC_EDIT&se_memo=yes&classid=DSEARCH&onlysubfam=" + window.DCP.manageSearch.famId + "&sfamid=" + window.DCP.manageSearch.famId);
+        $("#search-edition-iframe").attr("src", "?app=GENERIC&action=GENERIC_EDIT&se_memo=yes&classid=DSEARCH&onlysubfam=" + window.DCP.manageSearch.famId + "&sfamid=" + window.DCP.manageSearch.famId+"&alsosub="+window.DCP.manageSearch.alsosub);
     });
 
     /**
@@ -366,7 +366,7 @@
         iframeMode = "only_edition";
         sizeIframe();
         //noinspection JSUnresolvedVariable
-        $("#search-edition-iframe").attr("src", "?app=GENERIC&action=GENERIC_EDIT&se_memo=yes&classid=REPORT&onlysubfam=" + window.DCP.manageSearch.famId + "&sfamid=" + window.DCP.manageSearch.famId);
+        $("#search-edition-iframe").attr("src", "?app=GENERIC&action=GENERIC_EDIT&se_memo=yes&classid=REPORT&onlysubfam=" + window.DCP.manageSearch.famId + "&sfamid=" + window.DCP.manageSearch.famId+"&alsosub="+window.DCP.manageSearch.alsosub);
     });
 
     /**
