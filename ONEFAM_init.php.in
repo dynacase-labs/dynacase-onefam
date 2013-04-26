@@ -66,6 +66,13 @@ $app_const = array(
         "kind" => "readonly",
         "global" => "N",
         "descr" => N_("display mode")
+    ),
+    "ONEFAM_FAMCONFIG" => array(
+        "val" => "",
+        "user" => "N",
+        "kind" => "static",
+        "global" => "N",
+        "descr" => N_("family configuration")
     )
 );
 ?>
