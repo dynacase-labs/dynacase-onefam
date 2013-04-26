@@ -3,40 +3,38 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TEMPLATE\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-02 18:13+0200\n"
-"PO-Revision-Date: 2013-04-04 09:26+0200\n"
+"POT-Creation-Date: 2013-04-26 16:03+0200\n"
+"PO-Revision-Date: 2013-04-26 16:03+0200\n"
 "Last-Translator: Jean Martin <jean.martin@somewhere.org>\n"
 "Language-Team: French <distrib@somewhere.org>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 
-#: ONEFAM.app:130 test/ONEFAM/ONEFAM.app:104
+#: ONEFAM.app:130
 msgid "Access To Read Card"
 msgstr "Accès à la lecture"
 
-#: ONEFAM.app:134 test/ONEFAM/ONEFAM.app:108
+#: ONEFAM.app:134
 msgid "Access choose masters families"
 msgstr "Accès au choix des familles visibles administratives"
 
-#: tempCatalog.php:24 tempCatalog.php:26 tempCatalog.php:42 tempCatalog.php:44
+#: tempCatalog.php:32 tempCatalog.php:34
 msgid "Choose visibles families"
 msgstr "Choix des familles visibles"
 
-#: tempCatalog.php:29 tempCatalog.php:48
+#: tempCatalog.php:37
 msgid "Close"
 msgstr "Fermer"
 
 #: ONEFAM_EXT/Actions/onefam_ext_menu.php:70
 #: ONEFAM_EXT/Actions/onefam_ext_menu.php:92
-#: test/ONEFAM/onefam_ext_menu.php:70 test/ONEFAM/onefam_ext_menu.php:92
 #, c-format
 msgid "Create %s"
 msgstr "Créer %s"
 
 #: ONEFAM_EXT/Actions/onefam_ext_menu.php:104
-#: test/ONEFAM/onefam_ext_menu.php:104
 #, c-format
 msgid "Edit %s"
 msgstr "Éditer %s"
@@ -45,28 +43,28 @@ msgstr "Éditer %s"
 msgid "FGSEARCH:close search online help"
 msgstr ""
 
-#: tempCatalog.php:37
+#: tempCatalog.php:8
 msgid "FGSEARCH:help for input"
 msgstr ""
 
-#: Actions/onefam_togen.php:41 test/ONEFAM/onefam_togen.php:41
+#: Actions/onefam_togen.php:41
 #, c-format
 msgid "Family (#%d) is not referenced"
 msgstr "La famille (#%d) n'est pas référencée"
 
-#: Actions/onefam_togen.php:30 test/ONEFAM/onefam_togen.php:30
+#: Actions/onefam_togen.php:30
 msgid "Family is not instanciate"
 msgstr "La famille n'est pas instanciée"
 
-#: tempCatalog.php:31 tempCatalog.php:50
+#: tempCatalog.php:1
 msgid "Generic Management"
 msgstr "Gestion générique"
 
-#: tempCatalog.php:28 tempCatalog.php:46
+#: tempCatalog.php:36
 msgid "No family first"
 msgstr "Pas de famille ouverte par défaut"
 
-#: tempCatalog.php:34
+#: tempCatalog.php:5
 msgid "ONEFAM:Loading"
 msgstr "Chargement"
 
@@ -94,23 +92,23 @@ msgstr "ONEFAM : gestion des recherches"
 msgid "ONEFAM:SEARCH_MANAGEMENT:Click to see sub menu"
 msgstr "Cliquer pour voir le sous menu"
 
-#: tempCatalog.php:10
+#: tempCatalog.php:20
 msgid "ONEFAM:SEARCH_MANAGEMENT:Close the result"
 msgstr "Fermer les résultats"
 
-#: tempCatalog.php:21
+#: tempCatalog.php:31
 msgid "ONEFAM:SEARCH_MANAGEMENT:Confirm suppress"
 msgstr "Confirmer la suppression"
 
-#: tempCatalog.php:5
+#: tempCatalog.php:15
 msgid "ONEFAM:SEARCH_MANAGEMENT:Create a report"
 msgstr "Créer un rapport"
 
-#: tempCatalog.php:4
+#: tempCatalog.php:14
 msgid "ONEFAM:SEARCH_MANAGEMENT:Create a search"
 msgstr "Créer une recherche"
 
-#: tempCatalog.php:3
+#: tempCatalog.php:13
 msgid "ONEFAM:SEARCH_MANAGEMENT:Handle search for"
 msgstr "Gérer les recherches et les rapports de"
 
@@ -118,19 +116,19 @@ msgstr "Gérer les recherches et les rapports de"
 msgid "ONEFAM:SEARCH_MANAGEMENT:Is a shared research"
 msgstr "Recherche partagée"
 
-#: tempCatalog.php:7 tempCatalog.php:8
+#: tempCatalog.php:17 tempCatalog.php:18
 msgid "ONEFAM:SEARCH_MANAGEMENT:Key word"
 msgstr "Filtrer"
 
-#: tempCatalog.php:6
+#: tempCatalog.php:16
 msgid "ONEFAM:SEARCH_MANAGEMENT:List of search and report"
 msgstr "Liste des recherches et rapports"
 
-#: tempCatalog.php:9
+#: tempCatalog.php:19
 msgid "ONEFAM:SEARCH_MANAGEMENT:Loading..."
 msgstr "Chargement"
 
-#: tempCatalog.php:11
+#: tempCatalog.php:21
 msgid "ONEFAM:SEARCH_MANAGEMENT:Modify"
 msgstr "Modifier"
 
@@ -138,48 +136,48 @@ msgstr "Modifier"
 msgid "ONEFAM:SEARCH_MANAGEMENT:Presented in the filter list"
 msgstr "Présent dans la liste des filtres"
 
-#: tempCatalog.php:18
+#: tempCatalog.php:28
 msgid "ONEFAM:SEARCH_MANAGEMENT:Select as default search"
 msgstr "Sélectionné comme recherche par défaut"
 
-#: tempCatalog.php:16
+#: tempCatalog.php:26
 msgid "ONEFAM:SEARCH_MANAGEMENT:Share it"
 msgstr "Partager"
 
-#: tempCatalog.php:13
+#: tempCatalog.php:23
 msgid "ONEFAM:SEARCH_MANAGEMENT:Show the result"
 msgstr "Voir le résultat"
 
-#: tempCatalog.php:15
+#: tempCatalog.php:25
 msgid "ONEFAM:SEARCH_MANAGEMENT:Suppres it from filter"
 msgstr "Ne plus l'utiliser comme filtre"
 
-#: tempCatalog.php:12
+#: tempCatalog.php:22
 msgid "ONEFAM:SEARCH_MANAGEMENT:Suppress it"
 msgstr "Supprimer"
 
-#: tempCatalog.php:19
+#: tempCatalog.php:29
 msgid "ONEFAM:SEARCH_MANAGEMENT:Unselect as default search"
 msgstr "Ne plus sélectionner comme recherche par défaut"
 
-#: tempCatalog.php:17
+#: tempCatalog.php:27
 msgid "ONEFAM:SEARCH_MANAGEMENT:Unshare it"
 msgstr "Enlever du partage"
 
-#: tempCatalog.php:14
+#: tempCatalog.php:24
 msgid "ONEFAM:SEARCH_MANAGEMENT:Use it as filter"
 msgstr "Utiliser comme filtre"
 
-#: tempCatalog.php:20
+#: tempCatalog.php:30
 msgid "ONEFAM:SEARCH_MANAGEMENT:Use it now"
 msgstr "Utiliser maintenant"
 
-#: tempCatalog.php:39
+#: tempCatalog.php:10
 msgid "ONEFAM:Your preferences has been modified. Would you reload ?"
 msgstr ""
 "Vos préférences ont été modifiées. Voulez vous recharger l'application ?"
 
-#: tempCatalog.php:36
+#: tempCatalog.php:7
 msgid "ONEFAM:help (intro)"
 msgstr ""
 "<p>\n"
@@ -190,85 +188,95 @@ msgstr ""
 "en cliquant sur le pictogramme représentant une loupe. \n"
 "</p>"
 
-#: tempCatalog.php:35
+#: tempCatalog.php:6
 msgid "ONEFAM:help (title)"
 msgstr "Zone de recherche"
 
-#: tempCatalog.php:38
+#: tempCatalog.php:9
 msgid "ONEFAM:help specific"
 msgstr ""
 "<h2>Sélection d'une recherche prédéfinie</h2>\n"
 "<p>\n"
-"    Si des recherches sont prédéfinies, un bouton apparaît à gauche du champ de saisie.<br>\n"
-"     La sélection de ce bouton affiche la liste des recherches prédéfinies. Les recherches prédéfinies sont gérées par l'interface \"Gérer mes recherches\", disponible dans le menu \"Outils\".<br>\n"
-"      Une fois, la recherche prédéfinie sélectionnée, cette recherche est lancée. \n"
+"    Si des recherches sont prédéfinies, un bouton apparaît à gauche du champ "
+"de saisie.<br>\n"
+"     La sélection de ce bouton affiche la liste des recherches prédéfinies. "
+"Les recherches prédéfinies sont gérées par l'interface \"Gérer mes recherches"
+"\", disponible dans le menu \"Outils\".<br>\n"
+"      Une fois, la recherche prédéfinie sélectionnée, cette recherche est "
+"lancée. \n"
 "</p>\n"
 "<p>\n"
-"    Note : Pour les rapports, la sélection d'un rapport prédéfini affiche ce dernier dans la partie \"document\".\n"
+"    Note : Pour les rapports, la sélection d'un rapport prédéfini affiche ce "
+"dernier dans la partie \"document\".\n"
 "</p>\n"
 "<p>\n"
-"    Lorsqu'une recherche prédéfinie est selectionnée, il est possible d'affiner la recherche en utilisant la zone de texte. Les valeurs saisies sont alors cherchées parmi les résultats de la recherche prédéfinie.\n"
+"    Lorsqu'une recherche prédéfinie est selectionnée, il est possible "
+"d'affiner la recherche en utilisant la zone de texte. Les valeurs saisies "
+"sont alors cherchées parmi les résultats de la recherche prédéfinie.\n"
 "</p>"
 
-#: ONEFAM.app:27 test/ONEFAM/ONEFAM.app:27
+#: ONEFAM.app:27
 msgid "One Familly Management"
 msgstr "Gestion par famille"
 
-#: ONEFAM.app:26 test/ONEFAM/ONEFAM.app:26
+#: ONEFAM.app:26
 msgid "Onefam"
 msgstr "Une famille"
 
-#: tempCatalog.php:1 tempCatalog.php:49
+#: tempCatalog.php:39
 msgid "Starting of"
 msgstr "Démarrage de"
 
 #: ONEFAM_EXT/Actions/onefam_ext_menu.php:30
-#: ONEFAM_EXT/Actions/onefam_ext.php:26 test/ONEFAM/onefam_ext_menu.php:30
-#: test/ONEFAM/onefam_ext.php:26
+#: ONEFAM_EXT/Actions/onefam_ext.php:26
 msgid "This action requires the installation of Dynacase Extui module"
 msgstr "Cette action nécessite l'installation du module Dynacase Extui"
 
-#: ONEFAM.app:126 test/ONEFAM/ONEFAM.app:100
+#: ONEFAM.app:126
 msgid "To choose other families"
 msgstr "Pour choisir d'autres familles"
 
-#: tempCatalog.php:30 tempCatalog.php:47
+#: tempCatalog.php:38
 msgid "Validate"
 msgstr "Valider"
 
-#: tempCatalog.php:23 tempCatalog.php:33 tempCatalog.php:41 tempCatalog.php:52
+#: tempCatalog.php:4 tempCatalog.php:12
 msgid "choose user families"
 msgstr "Choix des familles personnelles"
 
-#: ONEFAM_init.php:61 test/ONEFAM/ONEFAM_init.php:61
+#: ONEFAM_init.php:61
 msgid "default background color"
 msgstr "couleur de fond"
 
-#: ONEFAM_init.php:53 test/ONEFAM/ONEFAM_init.php:53
+#: ONEFAM_init.php:53
 msgid "default opened family"
 msgstr "famille ouverte par défaut"
 
-#: ONEFAM_init.php:68 test/ONEFAM/ONEFAM_init.php:68
+#: ONEFAM_init.php:68
 msgid "display mode"
 msgstr "mode d'affichage"
 
-#: ONEFAM.app:80 test/ONEFAM/ONEFAM.app:80
+#: ONEFAM.app:80
 msgid "edit master preferences"
 msgstr "Éditer les préférences administratives"
 
-#: ONEFAM.app:65 test/ONEFAM/ONEFAM.app:65
+#: ONEFAM.app:65
 msgid "edit preferences"
 msgstr "Éditer les préférences"
 
-#: ONEFAM.app:50 test/ONEFAM/ONEFAM.app:50
+#: ONEFAM.app:50
 msgid "familly list"
 msgstr "Liste des familles"
 
-#: ONEFAM.app:60 test/ONEFAM/ONEFAM.app:60
+#: ONEFAM.app:60
 msgid "familly result"
 msgstr "Résultat des familles"
 
-#: ONEFAM.app:75 test/ONEFAM/ONEFAM.app:75
+#: ONEFAM_init.php:75
+msgid "family configuration"
+msgstr "Configuration des familles"
+
+#: ONEFAM.app:75
 msgid "get data for createtree family"
 msgstr "récupération de données pour l'arbre des familles"
 
@@ -288,25 +296,23 @@ msgstr "récupération du menu de famille"
 msgid "get preferences"
 msgstr "récupération des préférences"
 
-#: ONEFAM_init.php:37 test/ONEFAM/ONEFAM_init.php:37
+#: ONEFAM_init.php:37
 msgid "icon column number"
 msgstr "nombre de colonne d'icones"
 
-#: tempCatalog.php:22 tempCatalog.php:32 tempCatalog.php:40 tempCatalog.php:51
+#: tempCatalog.php:3 tempCatalog.php:11
 msgid "master choose families"
 msgstr "Choix des familles administratives"
 
 #: ONEFAM.app:88 ONEFAM_EXT/programs/initOnefamExt.php:27
-#: test/ONEFAM/ONEFAM.app:88
 msgid "modify master preferences"
 msgstr "modifier les préférences administratives"
 
 #: ONEFAM.app:70 ONEFAM_EXT/programs/initOnefamExt.php:22
-#: test/ONEFAM/ONEFAM.app:70
 msgid "modify preferences"
 msgstr "modifier les préférences"
 
-#: ONEFAM.app:39 test/ONEFAM/ONEFAM.app:39
+#: ONEFAM.app:39
 msgid "one familly root"
 msgstr "racine gestion par famille"
 
@@ -314,24 +320,23 @@ msgstr "racine gestion par famille"
 msgid "one family extjs view"
 msgstr "interface extjs"
 
-#: ONEFAM.app:45 test/ONEFAM/ONEFAM.app:45
+#: ONEFAM.app:45
 msgid "one family generic root"
 msgstr "racine generic gestion par famille"
 
-#: tempCatalog.php:27 tempCatalog.php:45
+#: tempCatalog.php:35
 msgid "open first family"
 msgstr " Ouverte en premier"
 
 #: ONEFAM_EXT/Actions/onefam_ext_menu.php:80
-#: test/ONEFAM/onefam_ext_menu.php:80
 msgid "other families"
 msgstr "Autres familles"
 
-#: ONEFAM.app:55 test/ONEFAM/ONEFAM.app:55
+#: ONEFAM.app:55
 msgid "redirect to generic"
 msgstr "rediriger vers generic"
 
-#: tempCatalog.php:25 tempCatalog.php:43
+#: tempCatalog.php:33
 msgid "set as first family view"
 msgstr "enregistrer la famille comme la première à voir"
 
@@ -339,15 +344,15 @@ msgstr "enregistrer la famille comme la première à voir"
 msgid "set ext display configuration"
 msgstr "affecte la configuration d'affichage"
 
-#: ONEFAM_init.php:45 test/ONEFAM/ONEFAM_init.php:45
+#: ONEFAM_init.php:45
 msgid "specific family menu"
 msgstr "Menu de famille spécifique"
 
-#: ONEFAM_init.php:30 test/ONEFAM/ONEFAM_init.php:30
+#: ONEFAM_init.php:30
 msgid "visible master families"
 msgstr "familles administratives visibles"
 
-#: ONEFAM_init.php:24 test/ONEFAM/ONEFAM_init.php:24
+#: ONEFAM_init.php:24
 msgid "visible user families"
 msgstr "familles personnelles visibles"
 
