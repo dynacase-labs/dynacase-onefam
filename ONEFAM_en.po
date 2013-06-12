@@ -40,11 +40,11 @@ msgstr "Edit %s"
 
 #: tempCatalog.php:2
 msgid "FGSEARCH:close search online help"
-msgstr ""
+msgstr "Close online help"
 
 #: tempCatalog.php:8
 msgid "FGSEARCH:help for input"
-msgstr ""
+msgstr "Help"
 
 #: Actions/onefam_togen.php:41
 #, c-format
@@ -137,7 +137,7 @@ msgstr "Presented in the filter list"
 
 #: tempCatalog.php:28
 msgid "ONEFAM:SEARCH_MANAGEMENT:Select as default search"
-msgstr "Select as default search"
+msgstr "Select it as default search"
 
 #: tempCatalog.php:26
 msgid "ONEFAM:SEARCH_MANAGEMENT:Share it"
@@ -149,7 +149,7 @@ msgstr "Show the result"
 
 #: tempCatalog.php:25
 msgid "ONEFAM:SEARCH_MANAGEMENT:Suppres it from filter"
-msgstr "Suppres it from filter"
+msgstr "Suppress it from filter"
 
 #: tempCatalog.php:22
 msgid "ONEFAM:SEARCH_MANAGEMENT:Suppress it"
@@ -217,7 +217,7 @@ msgstr "One Familly Management"
 
 #: ONEFAM.app:26
 msgid "Onefam"
-msgstr "Lastname"
+msgstr "Onefam"
 
 #: tempCatalog.php:39
 msgid "Starting of"
@@ -234,11 +234,11 @@ msgstr "To choose other families"
 
 #: tempCatalog.php:38
 msgid "Validate"
-msgstr "Edit"
+msgstr "Validate"
 
 #: tempCatalog.php:4 tempCatalog.php:12
 msgid "choose user families"
-msgstr ""
+msgstr "Choose user families"
 
 #: ONEFAM_init.php:61
 msgid "default background color"
@@ -262,11 +262,11 @@ msgstr "edit preferences"
 
 #: ONEFAM.app:50
 msgid "familly list"
-msgstr ""
+msgstr "Family list"
 
 #: ONEFAM.app:60
 msgid "familly result"
-msgstr ""
+msgstr "Family result"
 
 #: ONEFAM_init.php:75
 msgid "family configuration"
@@ -298,7 +298,7 @@ msgstr "icon column number"
 
 #: tempCatalog.php:3 tempCatalog.php:11
 msgid "master choose families"
-msgstr ""
+msgstr "Choose default families"
 
 #: ONEFAM.app:88 ONEFAM_EXT/programs/initOnefamExt.php:27
 msgid "modify master preferences"
@@ -310,7 +310,7 @@ msgstr "Modify"
 
 #: ONEFAM.app:39
 msgid "one familly root"
-msgstr ""
+msgstr "One family root"
 
 #: ONEFAM_EXT/programs/initOnefamExt.php:16
 msgid "one family extjs view"
@@ -322,7 +322,7 @@ msgstr ""
 
 #: tempCatalog.php:35
 msgid "open first family"
-msgstr "Category"
+msgstr "First opened family"
 
 #: ONEFAM_EXT/Actions/onefam_ext_menu.php:80
 msgid "other families"
@@ -334,7 +334,7 @@ msgstr ""
 
 #: tempCatalog.php:33
 msgid "set as first family view"
-msgstr "Organistation"
+msgstr "Set as first family view"
 
 #: ONEFAM_EXT/programs/initOnefamExt.php:61
 msgid "set ext display configuration"
