@@ -10,6 +10,7 @@
 
 .onefameico_open {
     border-left: 2px solid [COLOR_B1];
+    margin-left:0;
 }
 
 .onefameico_open:hover {
