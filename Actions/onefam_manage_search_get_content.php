@@ -65,7 +65,16 @@ function onefam_manage_search_get_content(Action & $action)
         $search->setStart($start);
         $search->setSlice($slice);
         $search->addFilter("owner = %s", $action->user->id);
-        $search->addFilter("se_famid = '%s'", $famId);
+        $child = $famDoc->getChildFam();
+        $only = (getInherit($action, $famDoc->id) == "N");
+        if ($only || count($child) == 0) {
+            $search->addFilter("se_famid='%s'", $famDoc->id);
+        } else {
+            $childIds = array_keys($child);
+            $childIds[] = $famDoc->id;
+            $search->addFilter($search->sqlcond($childIds, "se_famid"));
+        }
+        
         $search->orderby = 'title';
         if ($keyWord) {
             $keyWords = explode(" ", $keyWord);
