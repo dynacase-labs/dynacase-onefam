@@ -28,13 +28,34 @@ function onefam_manage_search(Action & $action)
         $action->lay->set("FAM_TITLE", str_replace('"', '\"', $famDoc->getTitle()));
         $action->lay->set("FAM_ID", str_replace('"', '\"', $famId));
         $action->lay->set("alsosub", getInherit($action, $famId));
-        $famReport = new_Doc("", 'REPORT');
-        $canCreateReport = $famReport->Control('icreate');
-        $action->lay->set('CANCREATE_REPORT', ("" == $canCreateReport));
+        $sMngConfig = $action->getParam("ONEFAM_SEARCHMANAGERCONFIG");
         
-        $famReport = new_Doc("", 'DSEARCH');
-        $canCreateDSEARCH = $famReport->Control('icreate');
-        $action->lay->set('CANCREATE_DSEARCH', ("" == $canCreateDSEARCH));
+        $mngConfig = json_decode($sMngConfig, true);
+        if ($mngConfig === false) {
+            throw new Exception(sprintf("Invalid parameter ONEFAM_SEARCHMANAGERCONFIG : \"%s\"", $sMngConfig));
+        }
+        if (!is_array($mngConfig)) {
+            throw new Exception(sprintf("Not an json array parameter ONEFAM_SEARCHMANAGERCONFIG : \"%s\"", $sMngConfig));
+        }
+        $createSearch = array();
+        foreach ($mngConfig as $aSearchConfig) {
+            $famId = $aSearchConfig["familyId"];
+            $fam = new_doc($action->dbaccess, $famId);
+            if ($fam->isAlive() && $fam->doctype == 'C' && $fam->control('icreate') == '') {
+                
+                $createLabel = $aSearchConfig["createLabel"];
+                if ($createLabel) {
+                    $createLabel = _($createLabel);
+                } else {
+                    $createLabel = sprintf(_("onefam:create %s") , $fam->getTitle());
+                }
+                $createSearch[] = array(
+                    "searchFamId" => $fam->id,
+                    "createSearchFamLabel" => $createLabel
+                );
+            }
+        }
+        $action->lay->setBlockData("CREATESEARCH", $createSearch);
     } else {
         throw new Exception(sprintf("The family %s is not valid", $famId));
     }

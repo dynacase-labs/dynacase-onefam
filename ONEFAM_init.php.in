@@ -73,6 +73,22 @@ $app_const = array(
         "kind" => "static",
         "global" => "N",
         "descr" => N_("family configuration")
+    ),
+    "ONEFAM_SEARCHMANAGERCONFIG" => array(
+        "val" => json_encode(array(
+            array(
+                "familyId"=>"DSEARCH",
+                "createLabel"=>N_("onefam:Create a detail search")
+            ),
+            array(
+                "familyId"=>"REPORT",
+                "createLabel"=>N_("onefam:Create a report")
+            )
+        )),
+        "user" => "N",
+        "kind" => "",
+        "global" => "N",
+        "descr" => N_("search manager configuration")
     )
 );
 ?>

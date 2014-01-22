@@ -354,26 +354,16 @@
     /**
      * Handle the creation search button
      */
-    $("#creation-search").on("click", function () {
+    $(".creation-search").on("click", function () {
         noListReload = true;
         hideSubMenu();
         iframeMode = "only_edition";
         sizeIframe();
         //noinspection JSUnresolvedVariable
-        $("#search-edition-iframe").attr("src", "?app=GENERIC&action=GENERIC_EDIT&se_memo=yes&classid=DSEARCH&onlysubfam=" + window.DCP.manageSearch.famId + "&sfamid=" + window.DCP.manageSearch.famId+"&alsosub="+window.DCP.manageSearch.alsosub);
+        $("#search-edition-iframe").attr("src", "?app=GENERIC&action=GENERIC_EDIT&se_memo=yes&classid="+$(this).data('famid')+"&onlysubfam=" + window.DCP.manageSearch.famId + "&sfamid=" + window.DCP.manageSearch.famId+"&alsosub="+window.DCP.manageSearch.alsosub);
     });
 
-    /**
-     * Handle the creation report button
-     */
-    $("#creation-report").on("click", function () {
-        noListReload = true;
-        hideSubMenu();
-        iframeMode = "only_edition";
-        sizeIframe();
-        //noinspection JSUnresolvedVariable
-        $("#search-edition-iframe").attr("src", "?app=GENERIC&action=GENERIC_EDIT&se_memo=yes&classid=REPORT&onlysubfam=" + window.DCP.manageSearch.famId + "&sfamid=" + window.DCP.manageSearch.famId+"&alsosub="+window.DCP.manageSearch.alsosub);
-    });
+
 
     /**
      * Handle the open in modification sub menu
