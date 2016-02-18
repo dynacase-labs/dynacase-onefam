@@ -54,9 +54,9 @@ $app_const = array(
     ) ,
     
     "ONEFAM_BGCOLOR" => array(
-        "val" => "inherit",
+        "val" => "",
         "user" => "N",
-        "kind" => "",
+        "kind" => "color",
         "global" => "N",
         "descr" => N_("default background color")
     ) ,

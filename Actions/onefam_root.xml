@@ -8,6 +8,12 @@
     [CSS:CUSTOMREF]
     <style type="text/css">
     [CSS:CODE]
+        .onefam {
+        [IF ONEFAM_BGCOLOR]
+        background-color:[ONEFAM_BGCOLOR];
+        background: linear-gradient(180deg, [ONEFAM_BGCOLOR], [CORE_BGCOLOR]);
+        [ENDIF ONEFAM_BGCOLOR]
+        }
     </style>
  </head>
 
