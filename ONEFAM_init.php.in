@@ -89,6 +89,12 @@ $app_const = array(
         "kind" => "",
         "global" => "N",
         "descr" => N_("search manager configuration")
-    )
+    ),
+    "ONEFAM_SEARCHMODE" => array(
+        "val"=>"",
+        "descr"=>N_("search mode"),
+        "global"=>"N",
+        "kind"=>"enum(words|characters)",
+        "user"=>"N")
+
 );
-?>

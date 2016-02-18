@@ -26,6 +26,8 @@ function onefam_root(Action & $action)
         $action->lay = new Layout(getLayoutFile("ONEFAM", "onefam_ext.xml") , $action);
         onefam_ext($action);
     } else {
+        $searchMode=$action->getParam("ONEFAM_SEARCHMODE", "words");
+         $action->lay->set("searchWords", ($searchMode==="words"));
         $action->lay->set("ONEFAM_JS", $action->parent->getJsLink("ONEFAM:onefam_root.js"));
         $action->lay->set("APP_TITLE", _($action->parent->description));
         
