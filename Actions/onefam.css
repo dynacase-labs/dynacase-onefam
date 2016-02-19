@@ -48,13 +48,6 @@
 
 .onefam {
     position : relative;
-    [IF oneBgColor]
-    background-color:[ONEFAM_BGCOLOR];
-    background: linear-gradient(270deg, [ONEFAM_BGCOLOR], [CORE_BGCOLOR]);
-    background: -moz-linear-gradient(270deg, [ONEFAM_BGCOLOR], [CORE_BGCOLOR]);
-    background: -webkit-gradient(linear, 0% 0, 0% 100%, from([ONEFAM_BGCOLOR]), to([CORE_BGCOLOR]) );
-    /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='[ONEFAM_BGCOLOR]', endColorstr='[CORE_BGCOLOR]'); */
-    [ENDIF oneBgColor]
 }
 
 .css-add-button-icon {

@@ -10,6 +10,8 @@ pages_sh = $(patsubst %.bash,$(progdir)/%,$(wildcard *.bash))
 pages_php = $(patsubst %.php,$(progdir)/%,$(wildcard *.php))
 DISTFILES += $(wildcard *.bash)
 
+$(progdir):
+	mkdir -p $@
 
 $(progdir)/%: %.bash $(progdir)
 	cp $< $@
