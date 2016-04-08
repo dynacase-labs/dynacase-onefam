@@ -22,9 +22,6 @@ AC_SUBST(APPNAME)
 APPNAME=ONEFAM
 ac_default_prefix=/usr/share/what
 
-LICENSE="http://www.fsf.org/licensing/licenses/agpl-3.0.html GNU Affero General Public License"
-AC_SUBST(LICENSE)
-
 AC_SUBST(PUBRULE)
 PUBRULE="$(pwd)/buildTools"
 AC_ARG_WITH(pubrule, [  --with-pubrule=dir	Path to PubRule], PUBRULE=$withval)
