@@ -19,14 +19,11 @@ include_once ("FDL/Class.SearchDoc.php");
  *  Retrieve families from onefam
  *
  * @param Action &$action current action
- * @global appid Http var : application name
+ * @global appid int var : application name
  */
 
-function onefam_ext_getpref(&$action, $idsattr = "ONEFAM_IDS")
+function onefam_ext_getpref(Action & $action, $idsattr = "ONEFAM_IDS")
 {
-    
-    $dbaccess = $action->GetParam("FREEDOM_DB");
-    
     $ids = explode(",", $action->getParam($idsattr));
     //$umids=explode(",",$action->getParam("ONEFAM_IDS"));
     $out = array(
@@ -37,8 +34,7 @@ function onefam_ext_getpref(&$action, $idsattr = "ONEFAM_IDS")
     $action->lay->template = json_encode($out);
 }
 
-function onefam_ext_getmasterpref(&$action)
+function onefam_ext_getmasterpref(Action & $action)
 {
     onefam_ext_getpref($action, "ONEFAM_MIDS");
 }
-?>

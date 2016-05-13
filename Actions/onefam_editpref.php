@@ -18,26 +18,24 @@ include_once "FDL/Lib.Dir.php";
 
 function onefam_editpref(Action & $action, $idsattr = "ONEFAM_IDS", $modaction = "ONEFAM_MODPREF")
 {
-    $dbaccess = $action->GetParam("FREEDOM_DB");
+    $action->parent->addJsRef($action->getParam("CORE_JSURL") . "/geometry.js");
+    $action->parent->addJsRef($action->getParam("CORE_JSURL") . "/resizeimg.js");
+    $action->parent->addJsRef($action->getParam("CORE_PUBURL") . "/FDL/Layout/common.js");
+    $action->parent->addJsRef("ONEFAM:onefam_editpref.js");
+    $action->parent->addCssRef("css/dcp/main.css");
+    $action->parent->addCssRef("ONEFAM:onefam_editpref.css");
     
-    $action->parent->AddJsRef($action->GetParam("CORE_JSURL") . "/geometry.js");
-    $action->parent->AddJsRef($action->GetParam("CORE_JSURL") . "/resizeimg.js");
-    $action->parent->AddJsRef($action->GetParam("CORE_PUBURL") . "/FDL/Layout/common.js");
-    $action->parent->AddJsRef("ONEFAM:onefam_editpref.js");
-    $action->parent->AddCssRef("css/dcp/main.css");
-    $action->parent->AddCssRef("ONEFAM:onefam_editpref.css");
+    $tcdoc = GetClassesDoc($action->dbaccess, $action->user->id, 0, "TABLE");
     
-    $tcdoc = GetClassesDoc($dbaccess, $action->user->id, 0, "TABLE");
-    
-    $idsfam = $action->GetParam($idsattr);
+    $idsfam = $action->getParam($idsattr);
     $tidsfam = explode(",", $idsfam);
     foreach ($tidsfam as $k => $v) {
-        if (!is_numeric($v)) $tidsfam[$k] = getFamIdFromName($dbaccess, $v);
+        if (!is_numeric($v)) $tidsfam[$k] = getFamIdFromName($action->dbaccess, $v);
     }
     
     $openfam = $action->getParam("ONEFAM_FAMOPEN");
     $action->lay->set("openfirst", $openfam);
-    $doc = new_Doc($dbaccess);
+    $doc = new_Doc($action->dbaccess);
     
     $selectclass = array();
     if (is_array($tcdoc)) {
@@ -51,11 +49,11 @@ function onefam_editpref(Action & $action, $idsattr = "ONEFAM_IDS", $modaction =
         }
     }
     
-    $action->lay->SetBlockData("SELECTPREF", $selectclass);
-    $action->lay->Set("modaction", $modaction);
+    $action->lay->setBlockData("SELECTPREF", $selectclass);
+    $action->lay->set("modaction", $modaction);
 }
 
-function onefam_editmasterpref(&$action)
+function onefam_editmasterpref(Action & $action)
 {
     onefam_editpref($action, "ONEFAM_MIDS", "ONEFAM_MODMASTERPREF");
 }

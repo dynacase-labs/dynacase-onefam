@@ -22,13 +22,11 @@ include_once ("FDL/Class.Doc.php");
  *
  * @param Action &$action current action
  *
+ * @return string
  */
 
-function onefam_ext_getdisplayconfig(&$action)
+function onefam_ext_getdisplayconfig(Action & $action)
 {
-    
-    $dbaccess = $action->GetParam("FREEDOM_DB");
-    
     $config = $action->getParam("ONEFAM_EXT_DISPLAYCONFIG", "{}");
     //$out=array("config"=>$config);
     return $config;
@@ -43,15 +41,12 @@ function onefam_ext_getdisplayconfig(&$action)
  * @param Action &$action current action
  *
  */
-function onefam_ext_setdisplayconfig(&$action)
+function onefam_ext_setdisplayconfig(Action & $action)
 {
-    $config = GetHttpVars("config");
-    
-    $dbaccess = $action->GetParam("FREEDOM_DB");
+    $config = getHttpVars("config");
     
     $action->setParamU("ONEFAM_EXT_DISPLAYCONFIG", $config);
     //$out = array("config"=>$config);
     $action->lay->noparse = true; // no need to parse after - increase performances
     $action->lay->template = $config;
 }
-?>

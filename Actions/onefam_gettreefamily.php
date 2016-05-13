@@ -19,9 +19,9 @@ include_once ("FDL/Class.SearchDoc.php");
  *  Retrieve search from onefam
  *
  * @param Action &$action current action
- * @global appid Http var : application name
+ * @global appid int var : application name
  */
-function onefam_gettreefamily(&$action)
+function onefam_gettreefamily(Action & $action)
 {
     $out = onefam_getDataTreeFamily($action);
     
@@ -29,20 +29,17 @@ function onefam_gettreefamily(&$action)
     $action->lay->template = json_encode($out);
 }
 
-function onefam_getDataTreeFamily(&$action)
+function onefam_getDataTreeFamily(Action & $action)
 {
-    
-    $dbaccess = $action->GetParam("FREEDOM_DB");
-    
     $tfs = array();
     
     $mids = explode(",", $action->getParam("ONEFAM_MIDS"));
     
     foreach ($mids as $fid) {
         if ($fid) {
-            $cdoc = new_Doc($dbaccess, $fid);
+            $cdoc = new_Doc($action->dbaccess, $fid);
             if ($cdoc->isAlive() && $cdoc->control('view') == "") {
-                $fs = getFamilySearches($dbaccess, $fid);
+                $fs = getFamilySearches($action->dbaccess, $fid);
                 if ($fs) $tfs[] = $fs;
             }
         }
@@ -52,7 +49,7 @@ function onefam_getDataTreeFamily(&$action)
     $umids = explode(",", $action->getParam("ONEFAM_IDS"));
     
     foreach ($umids as $fid) {
-        if ($fid && ($fs = getFamilySearches($dbaccess, $fid))) $utfs[] = $fs;
+        if ($fid && ($fs = getFamilySearches($action->dbaccess, $fid))) $utfs[] = $fs;
     }
     
     $out = array(
@@ -67,7 +64,10 @@ function onefam_getDataTreeFamily(&$action)
 }
 function getFamilySearches($dbaccess, $fid)
 {
-    $fam = new_doc($dbaccess, $fid);
+    /**
+     * @var \DocFam $fam
+     */
+    $fam = new_Doc($dbaccess, $fid);
     
     if ($fam->isAlive()) {
         $to["info"] = array(
@@ -80,8 +80,7 @@ function getFamilySearches($dbaccess, $fid)
         $s->addFilter("owner=" . $fam->userid);
         $s->addFilter("se_famid='" . $fam->id . "'");
         $s->setObjectReturn();
-        $s->setDebugMode();
-        $t = $s->search();
+        $s->search();
         while ($v = $s->getNextDoc()) {
             
             $to["userSearches"][] = array(
@@ -94,8 +93,7 @@ function getFamilySearches($dbaccess, $fid)
         $s = new SearchDoc($dbaccess, "SEARCH");
         $s->dirid = $fam->dfldid;
         $s->setObjectReturn();
-        $s->setDebugMode();
-        $t = $s->search();
+        $s->search();
         while ($v = $s->getNextDoc()) {
             
             $to["adminSearches"][$fid] = array(
@@ -106,7 +104,10 @@ function getFamilySearches($dbaccess, $fid)
         }
         
         if ($fam->wid > 0) {
-            $w = new_doc($dbaccess, $fam->wid);
+            /**
+             * @var \WDoc $w
+             */
+            $w = new_Doc($dbaccess, $fam->wid);
             if ($w->isAlive()) {
                 
                 foreach ($w->getStates() as $c) {
@@ -123,4 +124,3 @@ function getFamilySearches($dbaccess, $fid)
         return $to;
     } else return null;
 }
-?>
