@@ -19,11 +19,9 @@ include_once ("FDL/Lib.Dir.php");
 
 function onefam_togen(Action & $action)
 {
-    
-    $famid = GetHttpVars("famid", 0);
+    $famid = getHttpVars("famid", 0);
     $onefam = $action->parent->name;
-    $gonlylist = GetHttpVars("gonlylist");
-    $gaction = "";
+    $gonlylist = getHttpVars("gonlylist");
     
     if ($famid == 0) $action->exitError(_("Family is not instanciate"));
     
@@ -34,11 +32,9 @@ function onefam_togen(Action & $action)
         $gapp = $onefam;
         $gaction = "ONEFAM_GENROOT&famid=$famid";
     }
-    $dbaccess = $action->GetParam("FREEDOM_DB");
-    $doc = new_Doc($dbaccess, $famid);
+    $doc = new_Doc($action->dbaccess, $famid);
     if (!$doc->isAffected()) $action->exitError(sprintf(_("Family (#%d) is not referenced") , $famid));
     $action->Register("DEFAULT_FAMILY", $famid);
     
-    redirect($action, $gapp, $gaction);
+    Redirect($action, $gapp, $gaction);
 }
-?>

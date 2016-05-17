@@ -16,14 +16,9 @@
 
 include_once ("FDL/Class.Doc.php");
 
-function onefam_ext_modpref(&$action, $idsattr = "ONEFAM_IDS")
+function onefam_ext_modpref(Action & $action, $idsattr = "ONEFAM_IDS")
 {
-    $tidsfam = GetHttpVars("idsfam", array()); // preferenced families
-    $openfam = GetHttpVars("preffirstfam"); //
-    $dbaccess = $action->GetParam("FREEDOM_DB");
-    
-    $idsfam = $action->GetParam($idsattr);
-    
+    $tidsfam = getHttpVars("idsfam", array()); // preferenced families
     $idsfam = json_decode($tidsfam);
     $idsfam = implode(",", $idsfam);
     
@@ -47,8 +42,8 @@ function onefam_ext_modpref(&$action, $idsattr = "ONEFAM_IDS")
     $action->lay->noparse = true; // no need to parse after - increase performances
     $action->lay->template = json_encode($out);
 }
-function onefam_ext_modmasterpref(&$action)
+
+function onefam_ext_modmasterpref(Action & $action)
 {
     onefam_ext_modpref($action, "ONEFAM_MIDS");
 }
-?>

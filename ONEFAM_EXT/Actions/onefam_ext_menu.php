@@ -18,15 +18,15 @@ include_once ("EXTUI/eui_xmlmenu.php");
 /**
  * Colection menu
  * @param Action &$action current action
- * @global famid Http var : family id for menu
- * @global fldid Http var : id collection where is actually
- * @global menuxml Http var : the xml menu file APP:file.xml
+ * @global famid int var : family id for menu
+ * @global fldid int var : id collection where is actually
+ * @global menuxml string var : the xml menu file APP:file.xml
  */
-function onefam_ext_menu(&$action)
+function onefam_ext_menu(Action & $action)
 {
     if (!file_exists('lib/ui/freedom-extui.js')) {
         $err = _("This action requires the installation of Dynacase Extui module");
-        $action->ExitError($err);
+        $action->exitError($err);
     }
     
     $fldid = $action->getArgument("fldid");
@@ -34,10 +34,10 @@ function onefam_ext_menu(&$action)
     $docid = 0;
     $menuxml = $action->getArgument("menuxml", "EXTUI:default-collection-menu.xml");
     $menu = eui_getxmlmenu($docid, $menuxml, $fldid);
-    $dbaccess = $action->getParam("FREEDOM_DB");
     
+    $fld = null;
     if ($fldid) {
-        $fld = new_doc($dbaccess, $fldid);
+        $fld = new_Doc($action->dbaccess, $fldid);
         if (!$famid) {
             if ($fld->isAlive()) {
                 $famid = $fld->getRawValue("se_famid");
@@ -46,7 +46,7 @@ function onefam_ext_menu(&$action)
     }
     
     unset($menu["menu"]["createsearch"]);
-    $fam = new_doc($dbaccess, $famid);
+    $fam = new_Doc($action->dbaccess, $famid);
     $main = array();
     if ($fam->isAlive()) {
         if ($fam->control("icreate") == "") {
@@ -70,7 +70,7 @@ function onefam_ext_menu(&$action)
             );
         }
         $controlcreate = true;
-        $tfam = $fam->GetChildFam($fam->id, $controlcreate);
+        $tfam = $fam->getChildFam($fam->id, $controlcreate);
         
         if (count($tfam) > 0) {
             $main["family"]["items"]["subfam"] = array(
@@ -93,7 +93,7 @@ function onefam_ext_menu(&$action)
             }
         }
         
-        if ($fldid && $fld->isAlive() && ($fld->doctype != 'T')) {
+        if ($fldid && is_object($fld) && $fld->isAlive() && ($fld->doctype != 'T')) {
             $main["family"]["items"]["edit"] = array(
                 "script" => array(
                     "file" => "lib/ui/fdl-interface-action-common.js",
@@ -130,4 +130,3 @@ function onefam_ext_menu(&$action)
     $action->lay->noparse = true; // no need to parse after - increase performances
     $action->lay->template = json_encode($menu);
 }
-?>

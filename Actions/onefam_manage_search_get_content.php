@@ -22,7 +22,6 @@ function onefam_manage_search_get_content(Action & $action)
     );
     
     try {
-        $dbaccess = $action->GetParam("FREEDOM_DB");
         $actionUsage = new ActionUsage($action);
         
         $famId = $actionUsage->addRequiredParameter("famid", "famid");
@@ -36,7 +35,7 @@ function onefam_manage_search_get_content(Action & $action)
         $actionUsage->verify(true);
         
         if ($famId && (!is_numeric($famId))) {
-            $famId = getFamIdFromName($dbaccess, $famId);
+            $famId = getFamIdFromName($action->dbaccess, $famId);
         }
         
         $defaultSearchId = getDefU($action, "GENE_PREFSEARCH");
@@ -90,7 +89,7 @@ function onefam_manage_search_get_content(Action & $action)
         
         foreach ($search->getDocumentList() as $currentDocument) {
             /* @var $currentDocument Doc */
-            $return["data"]["result"][$currentDocument->getPropertyValue("id") ] = getSearchAbstract($dbaccess, $currentDocument, $defaultSearchId, $folder);
+            $return["data"]["result"][$currentDocument->getPropertyValue("id") ] = getSearchAbstract($action->dbaccess, $currentDocument, $defaultSearchId, $folder);
         }
         
         if ($dfldid) {
@@ -108,11 +107,11 @@ function onefam_manage_search_get_content(Action & $action)
             $search->setObjectReturn();
             foreach ($search->getDocumentList() as $currentDocument) {
                 /* @var $currentDocument Doc */
-                $return["data"]["result"][$currentDocument->getPropertyValue("id") ] = getSearchAbstract($dbaccess, $currentDocument, $defaultSearchId, $folder);
+                $return["data"]["result"][$currentDocument->getPropertyValue("id") ] = getSearchAbstract($action->dbaccess, $currentDocument, $defaultSearchId, $folder);
             }
         }
         
-        $collator = new Collator($action->GetParam('CORE_LANG', 'fr_FR'));
+        $collator = new Collator($action->getParam('CORE_LANG', 'fr_FR'));
         
         usort($return["data"]["result"], function ($abstract1, $abstract2) use ($collator)
         {

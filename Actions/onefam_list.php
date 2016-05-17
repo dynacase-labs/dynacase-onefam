@@ -21,35 +21,34 @@ function onefam_list(Action & $action)
 {
     $action->lay->set("APP_TITLE", _($action->parent->description));
     
-    $action->parent->AddJsRef($action->GetParam("CORE_JSURL") . "/subwindow.js");
-    $action->parent->AddJsRef($action->GetParam("CORE_JSURL") . "/resizeimg.js");
+    $action->parent->addJsRef($action->getParam("CORE_JSURL") . "/subwindow.js");
+    $action->parent->addJsRef($action->getParam("CORE_JSURL") . "/resizeimg.js");
     
-    $action->lay->SetBlockData("SELECTMASTER", getTableFamilyList($action->GetParam("ONEFAM_MIDS")));
+    $action->lay->setBlockData("SELECTMASTER", getTableFamilyList($action->getParam("ONEFAM_MIDS")));
     
-    if (($action->GetParam("ONEFAM_IDS") != "") && ($action->GetParam("ONEFAM_MIDS") != "")) {
-        $action->lay->SetBlockData("SEPARATOR", array(
+    if (($action->getParam("ONEFAM_IDS") != "") && ($action->getParam("ONEFAM_MIDS") != "")) {
+        $action->lay->setBlockData("SEPARATOR", array(
             array(
                 "zou"
             )
         ));
     }
     
-    if ($action->HasPermission("ONEFAM")) {
-        $action->lay->SetBlockData("CHOOSEUSERFAMILIES", array(
+    if ($action->hasPermission("ONEFAM")) {
+        $action->lay->setBlockData("CHOOSEUSERFAMILIES", array(
             array(
                 "zou"
             )
         ));
-        $action->lay->SetBlockData("SELECTUSER", getTableFamilyList($action->GetParam("ONEFAM_IDS")));
+        $action->lay->setBlockData("SELECTUSER", getTableFamilyList($action->getParam("ONEFAM_IDS")));
     }
-    if ($action->HasPermission("ONEFAM_MASTER")) {
-        $action->lay->SetBlockData("CHOOSEMASTERFAMILIES", array(
+    if ($action->hasPermission("ONEFAM_MASTER")) {
+        $action->lay->setBlockData("CHOOSEMASTERFAMILIES", array(
             array(
                 "zou"
             )
         ));
     }
-    $iz = $action->getParam("CORE_ICONSIZE");
     $izpx = intval($action->getParam("SIZE_IMG-SMALL"));
     
     $action->lay->set("izpx", $izpx);
@@ -61,10 +60,11 @@ function getTableFamilyList($idsfam)
     if ($idsfam != "") {
         $tidsfam = explode(",", $idsfam);
         
-        $dbaccess = GetParam("FREEDOM_DB");
-        
         foreach ($tidsfam as $k => $cid) {
-            $cdoc = new_Doc($dbaccess, $cid);
+            /**
+             * @var \DocFam $cdoc
+             */
+            $cdoc = new_Doc('', $cid);
             if ($cdoc->dfldid > 0) {
                 if ($cdoc->control('view') == "") {
                     $selectclass[$k]["idcdoc"] = $cdoc->initid;
@@ -76,4 +76,3 @@ function getTableFamilyList($idsfam)
     }
     return $selectclass;
 }
-?>

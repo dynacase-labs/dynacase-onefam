@@ -24,8 +24,8 @@ function onefam_root(Action & $action)
         $action->lay = new Layout(getLayoutFile("ONEFAM", "onefam_ext.xml") , $action);
         onefam_ext($action);
     } else {
-        $searchMode=$action->getParam("ONEFAM_SEARCHMODE", "words");
-         $action->lay->set("searchWords", ($searchMode==="words"));
+        $searchMode = $action->getParam("ONEFAM_SEARCHMODE", "words");
+        $action->lay->set("searchWords", ($searchMode === "words"));
         $action->lay->set("ONEFAM_JS", $action->parent->getJsLink("ONEFAM:onefam_root.js"));
         $action->lay->set("APP_TITLE", _($action->parent->description));
         
@@ -33,18 +33,16 @@ function onefam_root(Action & $action)
         $action->lay->set("colNumber", $nbcol);
         
         $delta = 0;
-        if ($action->read("navigator") == "EXPLORER") {
+        if ($action->Read("navigator") == "EXPLORER") {
             $delta = 1;
         }
-        
-        $dbaccess = $action->GetParam("FREEDOM_DB");
         
         $izpx = intval($action->getParam("SIZE_IMG-SMALL"));
         $action->lay->set("wcols", $izpx * $nbcol + $delta);
         $action->lay->set("Title", _($action->parent->short_name));
         
         $openfam = $action->getParam("ONEFAM_FAMOPEN");
-        if (($openfam != "") && (!is_numeric($openfam))) $openfam = getFamIdFromName($dbaccess, $openfam);
+        if (($openfam != "") && (!is_numeric($openfam))) $openfam = getFamIdFromName($action->dbaccess, $openfam);
         if ($openfam > 0) {
             $action->lay->set("OPENFAM", true);
             $action->lay->set("openfam", $openfam);
@@ -52,35 +50,35 @@ function onefam_root(Action & $action)
             $action->lay->set("OPENFAM", false);
         }
         
-        $action->parent->AddCssRef("css/dcp/main.css");
-        $action->parent->AddCssRef("css/dcp/jquery-ui.css");
-        $action->parent->AddCssRef("ONEFAM:onefam.css", true);
-        $action->parent->AddJsRef($action->GetParam("CORE_JSURL") . "/subwindow.js");
-        $action->parent->AddJsRef($action->GetParam("CORE_JSURL") . "/resizeimg.js");
-        $action->parent->AddJsRef($action->GetParam("CORE_JSURL") . "/geometry.js");
+        $action->parent->addCssRef("css/dcp/main.css");
+        $action->parent->addCssRef("css/dcp/jquery-ui.css");
+        $action->parent->addCssRef("ONEFAM:onefam.css", true);
+        $action->parent->addJsRef($action->getParam("CORE_JSURL") . "/subwindow.js");
+        $action->parent->addJsRef($action->getParam("CORE_JSURL") . "/resizeimg.js");
+        $action->parent->addJsRef($action->getParam("CORE_JSURL") . "/geometry.js");
         
-        $action->lay->Set("oneBgColor", (($action->getParam("ONEFAM_BGCOLOR") != 'inherit') && ($action->getParam("ONEFAM_BGCOLOR") != '')));
+        $action->lay->set("oneBgColor", (($action->getParam("ONEFAM_BGCOLOR") != 'inherit') && ($action->getParam("ONEFAM_BGCOLOR") != '')));
         
-        $action->lay->SetBlockData("SELECTMASTER", getTableFamilyList($action->GetParam("ONEFAM_MIDS") , $izpx));
+        $action->lay->setBlockData("SELECTMASTER", getTableFamilyList($action->getParam("ONEFAM_MIDS") , $izpx));
         
-        if (($action->GetParam("ONEFAM_IDS") != "") && ($action->GetParam("ONEFAM_MIDS") != "")) {
-            $action->lay->SetBlockData("SEPARATOR", array(
+        if (($action->getParam("ONEFAM_IDS") != "") && ($action->getParam("ONEFAM_MIDS") != "")) {
+            $action->lay->setBlockData("SEPARATOR", array(
                 array(
                     "zou"
                 )
             ));
         }
         
-        if ($action->HasPermission("ONEFAM")) {
-            $action->lay->SetBlockData("CHOOSEUSERFAMILIES", array(
+        if ($action->hasPermission("ONEFAM")) {
+            $action->lay->setBlockData("CHOOSEUSERFAMILIES", array(
                 array(
                     "zou"
                 )
             ));
-            $action->lay->SetBlockData("SELECTUSER", getTableFamilyList($action->GetParam("ONEFAM_IDS") , $izpx));
+            $action->lay->setBlockData("SELECTUSER", getTableFamilyList($action->getParam("ONEFAM_IDS") , $izpx));
         }
-        if ($action->HasPermission("ONEFAM_MASTER")) {
-            $action->lay->SetBlockData("CHOOSEMASTERFAMILIES", array(
+        if ($action->hasPermission("ONEFAM_MASTER")) {
+            $action->lay->setBlockData("CHOOSEMASTERFAMILIES", array(
                 array(
                     "zou"
                 )
@@ -96,19 +94,17 @@ function getTableFamilyList($idsfam, $izpx = null)
     if ($idsfam != "") {
         $tidsfam = explode(",", $idsfam);
         
-        $dbaccess = GetParam("FREEDOM_DB");
-        
         foreach ($tidsfam as $k => $cid) {
             /**
              * @var DocFam $cdoc
              */
-            $cdoc = new_Doc($dbaccess, $cid);
+            $cdoc = new_Doc('', $cid);
             if ($cdoc->isAlive() && $cdoc->dfldid > 0) {
                 
                 if ($cdoc->control('view') == "") {
                     $selectclass[$k]["idcdoc"] = $cdoc->initid;
                     $selectclass[$k]["familyName"] = $cdoc->name;
-                    $selectclass[$k]["ftitle"] = $cdoc->getHtmltitle();
+                    $selectclass[$k]["ftitle"] = $cdoc->getHTMLTitle();
                     $selectclass[$k]["iconsrc"] = $cdoc->getIcon('', $izpx);
                 }
             }
@@ -116,4 +112,3 @@ function getTableFamilyList($idsfam, $izpx = null)
     }
     return $selectclass;
 }
-?>
